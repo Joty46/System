@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/images3"
+    tools:context=".UploadWorks">
+
+    <TextView
+        android:id="@+id/uploadworktxt"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Upload Works"
+        android:textColor="#E8FFFFFF"
+        android:textSize="35dp"
+        android:textStyle="bold"
+        android:layout_marginTop="30dp"
+        android:gravity="center"
+        />
+    <TextView
+        android:id="@+id/imgtxt"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/uploadworktxt"
+        android:text="Image of your work :"
+        android:textColor="#E8FFFFFF"
+        android:textSize="20dp"
+        android:textStyle="italic"
+        android:layout_margin="5dp"
+        />
+    <ImageView
+        android:id="@+id/imageforworks"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:background="@drawable/craft7"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@id/imgtxt"
+        android:layout_marginTop="5dp"
+        />
+
+    <TextView
+        android:id="@+id/priceinworks"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/imageforworks"
+        android:text="Price :"
+        android:textColor="#E8FFFFFF"
+        android:textSize="20dp"
+        android:textStyle="italic"
+        android:layout_margin="5dp"
+        />
+
+    <EditText
+        android:id="@+id/editprice"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/priceinworks"
+        android:layout_marginTop="5dp"
+        android:layout_marginBottom="10dp"
+        android:background="#30ffffff"
+        android:drawablePadding="20dp"
+        android:hint="150 BDT"
+        android:padding="20dp"
+        android:textColor="@color/white"
+        android:textColorHint="@color/white" />
+    <TextView
+        android:id="@+id/dayinworks"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/editprice"
+        android:text="Days needed to complete:"
+        android:textColor="#E8FFFFFF"
+        android:textSize="20dp"
+        android:textStyle="italic"
+        android:layout_margin="5dp"
+        />
+
+    <EditText
+        android:id="@+id/editdays"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/dayinworks"
+        android:layout_marginTop="5dp"
+        android:layout_marginBottom="10dp"
+        android:background="#30ffffff"
+        android:drawablePadding="20dp"
+        android:hint="15 days"
+        android:padding="20dp"
+        android:textColor="@color/white"
+        android:textColorHint="@color/white" />
+    <com.google.android.material.button.MaterialButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/submitworks"
+        android:text="SUBMIT"
+        android:textSize="25dp"
+        android:layout_below="@id/editdays"
+        android:layout_centerHorizontal="true"
+        android:backgroundTint="@color/purple_700"
+        android:layout_margin="20dp"
+        />
+
+
+
+
+
+
+</RelativeLayout>
