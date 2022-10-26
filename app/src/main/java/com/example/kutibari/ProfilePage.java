@@ -49,8 +49,7 @@ public class ProfilePage extends AppCompatActivity {
         uploadbtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent=new Intent(ProfilePage.this,UploadWorks.class);//upload works
-                startActivity(intent);
+                startActivity(new Intent(ProfilePage.this,UploadWorks.class));
             }
         });
     }

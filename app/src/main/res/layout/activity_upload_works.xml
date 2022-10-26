@@ -4,8 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/images3"
-    tools:context=".UploadWorks">
+    android:background="@drawable/images4"
+    tools:context=".MainActivity">
 
     <TextView
         android:id="@+id/uploadworktxt"
@@ -23,27 +23,47 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/uploadworktxt"
+        android:paddingLeft="24dp"
         android:text="Image of your work :"
         android:textColor="#E8FFFFFF"
         android:textSize="20dp"
         android:textStyle="italic"
         android:layout_margin="5dp"
         />
+
     <ImageView
         android:id="@+id/imageforworks"
         android:layout_width="150dp"
         android:layout_height="150dp"
-        android:background="@drawable/craft7"
-        android:layout_centerHorizontal="true"
         android:layout_below="@id/imgtxt"
-        android:layout_marginTop="5dp"
+        android:layout_marginLeft="120dp"
+        tools:srcCompat="@tools:sample/avatars"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
         />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/floatingActionButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/imgtxt"
+        android:layout_marginLeft="220dp"
+        android:layout_marginTop="98dp"
+        android:clickable="true"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.701"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:srcCompat="@tools:sample/avatars" />
 
     <TextView
         android:id="@+id/priceinworks"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/imageforworks"
+        android:paddingLeft="24dp"
         android:text="Price :"
         android:textColor="#E8FFFFFF"
         android:textSize="20dp"
@@ -57,6 +77,8 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/priceinworks"
         android:layout_marginTop="5dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginEnd="24dp"
         android:layout_marginBottom="10dp"
         android:background="#30ffffff"
         android:drawablePadding="20dp"
@@ -69,6 +91,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/editprice"
+        android:paddingLeft="24dp"
         android:text="Days needed to complete:"
         android:textColor="#E8FFFFFF"
         android:textSize="20dp"
@@ -82,6 +105,8 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/dayinworks"
         android:layout_marginTop="5dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginEnd="24dp"
         android:layout_marginBottom="10dp"
         android:background="#30ffffff"
         android:drawablePadding="20dp"
@@ -97,11 +122,9 @@
         android:textSize="25dp"
         android:layout_below="@id/editdays"
         android:layout_centerHorizontal="true"
-        android:backgroundTint="@color/purple_700"
+        android:backgroundTint="@color/teal_200"
         android:layout_margin="20dp"
         />
-
-
 
 
 
