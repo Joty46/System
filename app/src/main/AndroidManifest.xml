@@ -16,6 +16,9 @@
         android:theme="@style/Theme.KutiBari"
         tools:targetApi="31">
         <activity
+            android:name=".CustomerOrderPage"
+            android:exported="false" />
+        <activity
             android:name=".UploadWorks"
             android:exported="false" />
         <activity
