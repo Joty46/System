@@ -1,15 +1,25 @@
 package com.example.kutibari;
 
+import static androidx.constraintlayout.widget.Constraints.TAG;
+
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.android.gms.tasks.Task;
 import com.google.android.material.button.MaterialButton;
+import com.google.firebase.auth.AuthResult;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -21,7 +31,9 @@ public class RegistrationNew extends AppCompatActivity {
      * database reference
      * @param savedInstanceState
      */
-    DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReferenceFromUrl("https://kutibari-9a550-default-rtdb.firebaseio.com");
+    FirebaseAuth mAuth;
+    FirebaseUser mUser;
+    FirebaseDatabase reference;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -37,6 +49,9 @@ public class RegistrationNew extends AppCompatActivity {
 
         final MaterialButton register = findViewById(R.id.signup);
         final TextView login = findViewById(R.id.loginnow);
+        mAuth=FirebaseAuth.getInstance();
+        mUser=mAuth.getCurrentUser();
+        reference=FirebaseDatabase.getInstance();
 
         /**
          * registering process
@@ -47,15 +62,16 @@ public class RegistrationNew extends AppCompatActivity {
                 /**
                  * get data into string form from edit text
                  */
-                final String phone = mobile.getText().toString();
-                final String user_name = username.getText().toString();
-                final String pass = password.getText().toString();
-                final String confirm = conpass.getText().toString();
+                 String phone = mobile.getText().toString();
+                 String authemail = mobile.getText().toString()+"@gmail.com";
+                 String user_name = username.getText().toString();
+                 String pass = password.getText().toString();
+                 String confirm = conpass.getText().toString();
 
                 /**
                  * checking if all fields are fulfilled correctly
                  */
-                if(user_name.isEmpty() || phone.isEmpty() || pass.isEmpty() ){
+                if(user_name.isEmpty() || pass.isEmpty()){
                     Toast.makeText(RegistrationNew.this,"Please fill out all the fields",Toast.LENGTH_SHORT).show();
                 }
 
@@ -63,26 +79,29 @@ public class RegistrationNew extends AppCompatActivity {
                     Toast.makeText(RegistrationNew.this,"Passwords are not matched",Toast.LENGTH_SHORT).show();
                 }
                 else{
-                    databaseReference.child("users").addListenerForSingleValueEvent(new ValueEventListener() {
+                    mAuth.createUserWithEmailAndPassword(authemail,pass).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                         @Override
-                        public void onDataChange(@NonNull DataSnapshot snapshot) {
-                            //check if phone is not registered before
-                            if(snapshot.hasChild(phone)){
-                                Toast.makeText(RegistrationNew.this, "Phone number is already is registered", Toast.LENGTH_SHORT).show();
+                        public void onComplete(@NonNull Task<AuthResult> task) {
+                            if(task.isSuccessful())
+                            {
+                                User user=new User(phone,user_name,pass);
+                                try {
+                                    reference.getReference().child("users").child(phone).push().setValue(user).addOnSuccessListener(new OnSuccessListener<Void>() {
+                                        @Override
+                                        public void onSuccess(Void unused) {
+                                            sendUserToNextActivity();
+                                            Log.e(TAG, "onSuccess: Add hoise");
+                                        }
+                                    });
+                                }
+                                catch (Exception ignored){
+                                    Log.e(TAG, "onComplete:a"+ignored.getMessage() );
+                                }
+                                                }
+                            else
+                            {
+                                Toast.makeText(RegistrationNew.this, "Enter Strong Password", Toast.LENGTH_SHORT).show();
                             }
-                            else {
-                                //sending data to firebase realtime database
-                                databaseReference.child("users").child(phone).child("user name").setValue(user_name);
-                                databaseReference.child("users").child(phone).child("password").setValue(pass);
-
-                                Toast.makeText(RegistrationNew.this, "Registration successful", Toast.LENGTH_SHORT).show();
-                                finish();
-                            }
-                        }
-
-                        @Override
-                        public void onCancelled(@NonNull DatabaseError error) {
-
                         }
                     });
 
@@ -96,5 +115,11 @@ public class RegistrationNew extends AppCompatActivity {
                 finish();
             }
         });
+    }
+
+    private void sendUserToNextActivity() {
+        Intent intent=new Intent(RegistrationNew.this,MainActivity.class);
+        intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK|Intent.FLAG_ACTIVITY_NEW_TASK);
+        startActivity(intent);
     }
 }
