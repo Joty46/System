@@ -51,16 +51,16 @@ public class LoginPage extends AppCompatActivity {
                  * code
                  */
                 final String phone = mobile.getText().toString()+"@gmail.com";
-                final String pass = password.getText().toString();
+                final String[] pass = {password.getText().toString()};
 
                 if(phone.isEmpty()){
                     Toast.makeText(LoginPage.this,"Please Enter your username",Toast.LENGTH_SHORT).show();
                 }
-                else if(pass.isEmpty() ){
+                else if(pass[0].isEmpty() ){
                     Toast.makeText(LoginPage.this,"Please Enter your password",Toast.LENGTH_SHORT).show();
                 }
                 else{
-                    mAuth.signInWithEmailAndPassword(phone,pass).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+                    mAuth.signInWithEmailAndPassword(phone,pass[0]).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                         @Override
                         public void onComplete(@NonNull Task<AuthResult> task) {
                             if(task.isSuccessful())
@@ -70,6 +70,7 @@ public class LoginPage extends AppCompatActivity {
                                 finish();
                             }
                             else{
+                                Log.e(TAG, "onComplete: "+task.getException() );
                                 Toast.makeText(LoginPage.this, ""+task.getException(), Toast.LENGTH_SHORT).show();
                             }
                         }

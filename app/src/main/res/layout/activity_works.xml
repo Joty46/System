@@ -13,7 +13,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="30dp"
         android:gravity="center"
-        android:text="Works"
+        android:text="কাজ"
         android:textColor="#E8FFFFFF"
         android:textSize="35dp"
         android:textStyle="bold" />
@@ -26,15 +26,43 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="5dp"
         android:background="@drawable/product" />
+    <TextView
+        android:id="@+id/nameinworks"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/imageforworks"
+        android:paddingLeft="24dp"
+        android:text="শিরোনাম :"
+        android:textColor="#E8FFFFFF"
+        android:textSize="20dp"
+        android:textStyle="italic"
+        android:layout_margin="5dp"
+        />
+
+    <TextView
+        android:id="@+id/name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/nameinworks"
+        android:layout_marginTop="5dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginEnd="24dp"
+        android:layout_marginBottom="10dp"
+        android:background="#30ffffff"
+        android:drawablePadding="20dp"
+        android:hint="নাম"
+        android:padding="20dp"
+        android:textColor="@color/white"
+        android:textColorHint="@color/white" />
 
     <TextView
         android:id="@+id/txtforprice"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/imageforworks"
+        android:layout_below="@id/name"
         android:layout_margin="5dp"
         android:paddingLeft="24dp"
-        android:text="Price :"
+        android:text="দাম :"
         android:textColor="#E8FFFFFF"
         android:textSize="20dp"
         android:textStyle="italic" />
@@ -50,7 +78,7 @@
         android:layout_marginBottom="10dp"
         android:background="#30ffffff"
         android:drawablePadding="20dp"
-        android:hint="150 BDT"
+        android:hint="কত টাকাা"
         android:padding="20dp"
         android:textColor="@color/white"
         android:textColorHint="@color/white" />
@@ -62,7 +90,7 @@
         android:layout_below="@id/price"
         android:layout_margin="5dp"
         android:paddingLeft="24dp"
-        android:text="Days needed to complete:"
+        android:text="সময় :"
         android:textColor="#E8FFFFFF"
         android:textSize="20dp"
         android:textStyle="italic" />
@@ -78,7 +106,7 @@
         android:layout_marginBottom="10dp"
         android:background="#30ffffff"
         android:drawablePadding="20dp"
-        android:hint="15 days"
+        android:hint="কাজটি সম্পন্ন করতে করতে কত দিন লাগবে"
         android:padding="20dp"
         android:textColor="@color/white"
         android:textColorHint="@color/white" />
@@ -90,7 +118,7 @@
         android:layout_below="@id/days"
         android:layout_margin="5dp"
         android:paddingLeft="24dp"
-        android:text="Comment :"
+        android:text="মন্তব্য :"
         android:textColor="#E8FFFFFF"
         android:textSize="20dp"
         android:textStyle="italic" />
@@ -106,7 +134,7 @@
         android:layout_marginBottom="10dp"
         android:background="#30ffffff"
         android:drawablePadding="20dp"
-        android:hint="None"
+        android:hint="নেই"
         android:padding="20dp"
         android:textColor="@color/white"
         android:textColorHint="@color/white" />

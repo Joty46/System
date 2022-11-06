@@ -53,7 +53,7 @@ public class UploadWorks extends AppCompatActivity {
         launcher= registerForActivityResult(new ActivityResultContracts.GetContent(), new ActivityResultCallback<Uri>() {
             @Override
             public void onActivityResult(Uri result) {
-                binding.imageforworks.setImageURI(result);
+                binding.imageforuploadworks.setImageURI(result);
                 ur=result;
             }
         });;

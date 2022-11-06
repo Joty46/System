@@ -65,26 +65,26 @@ public class RegistrationNew extends AppCompatActivity {
                  String phone = mobile.getText().toString();
                  String authemail = mobile.getText().toString()+"@gmail.com";
                  String user_name = username.getText().toString();
-                 String pass = password.getText().toString();
+                 String[] pass = {password.getText().toString()};
                  String confirm = conpass.getText().toString();
 
                 /**
                  * checking if all fields are fulfilled correctly
                  */
-                if(user_name.isEmpty() || pass.isEmpty()){
+                if(user_name.isEmpty() || pass[0].isEmpty()){
                     Toast.makeText(RegistrationNew.this,"Please fill out all the fields",Toast.LENGTH_SHORT).show();
                 }
 
-                if(!pass.equals(confirm)){
+                if(!pass[0].equals(confirm)){
                     Toast.makeText(RegistrationNew.this,"Passwords are not matched",Toast.LENGTH_SHORT).show();
                 }
                 else{
-                    mAuth.createUserWithEmailAndPassword(authemail,pass).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+                    mAuth.createUserWithEmailAndPassword(authemail,pass[0]).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                         @Override
                         public void onComplete(@NonNull Task<AuthResult> task) {
                             if(task.isSuccessful())
                             {
-                                User user=new User(phone,user_name,pass);
+                                User user=new User(phone,user_name,pass[0]);
                                 try {
                                     reference.getReference().child("users").child(phone).push().setValue(user).addOnSuccessListener(new OnSuccessListener<Void>() {
                                         @Override
@@ -94,12 +94,13 @@ public class RegistrationNew extends AppCompatActivity {
                                         }
                                     });
                                 }
-                                catch (Exception ignored){
-                                    Log.e(TAG, "onComplete:a"+ignored.getMessage() );
+                                catch (Exception e){
+                                    Log.e(TAG, "onComplete:a"+e.getMessage() );
                                 }
                                                 }
                             else
                             {
+                                Log.e(TAG, "onComplete:" + task.getException() );
                                 Toast.makeText(RegistrationNew.this, "Enter Strong Password", Toast.LENGTH_SHORT).show();
                             }
                         }

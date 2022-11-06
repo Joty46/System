@@ -11,7 +11,7 @@
         android:id="@+id/orderforsellertxt"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Order Details"
+        android:text="অর্ডারের বিস্তারিত তথ্য"
         android:textColor="#E8FFFFFF"
         android:textSize="35dp"
         android:textStyle="bold"
