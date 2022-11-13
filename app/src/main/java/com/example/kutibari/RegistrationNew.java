@@ -119,7 +119,7 @@ public class RegistrationNew extends AppCompatActivity {
     }
 
     private void sendUserToNextActivity() {
-        Intent intent=new Intent(RegistrationNew.this,MainActivity.class);
+        Intent intent=new Intent(RegistrationNew.this,LoginPage.class);
         intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK|Intent.FLAG_ACTIVITY_NEW_TASK);
         startActivity(intent);
     }

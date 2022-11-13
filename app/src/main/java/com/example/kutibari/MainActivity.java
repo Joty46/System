@@ -93,14 +93,6 @@ public class MainActivity extends AppCompatActivity {
         /**
          * sign up text to go create account page
          */
-        TextView signup = (TextView) findViewById(R.id.signup);
-        signup.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(MainActivity.this, RegisterScan.class));
-//                finish();
-            }
-        });
 
         /**
          * view category to go to category page

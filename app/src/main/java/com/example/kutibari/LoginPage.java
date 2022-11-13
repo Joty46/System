@@ -112,7 +112,7 @@ public class LoginPage extends AppCompatActivity {
         regnow.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(LoginPage.this, RegistrationNew.class));
+                startActivity(new Intent(LoginPage.this, RegisterScan.class));
             }
         });
 
