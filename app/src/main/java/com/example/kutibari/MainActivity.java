@@ -1,10 +1,14 @@
 package com.example.kutibari;
 
+import static androidx.constraintlayout.helper.widget.MotionEffect.TAG;
+
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.GridView;
@@ -13,6 +17,8 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.material.button.MaterialButton;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -22,6 +28,7 @@ public class MainActivity extends AppCompatActivity {
     private GridView gridcat;
     public static int categoryImages[] = {R.drawable.craft1, R.drawable.craft2, R.drawable.craft3, R.drawable.craft4, R.drawable.craft5, R.drawable.craft6, R.drawable.craft7};
     public static String[] productName = {"cat1", "cat2", "cat3", "cat4", "cat5", "cat6", "cat7"};
+    FirebaseAuth mAuth = FirebaseAuth.getInstance();
 
     /**
      * grid view and arrays
@@ -56,6 +63,12 @@ public class MainActivity extends AppCompatActivity {
          */
         ImageView imageView = findViewById(R.id.image);
 //        TextView showtext = findViewById(R.id.login);
+        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+        if (user == null) {
+            Intent intent=new Intent(MainActivity.this,LoginPage.class);
+            Log.e(TAG, "onComplete: Login complete" );
+            startActivity(intent);
+        }
 
         imageView.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -71,6 +84,7 @@ public class MainActivity extends AppCompatActivity {
         loginbtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                mAuth.signOut();
                 startActivity(new Intent(MainActivity.this, LoginPage.class));
                 finish();
             }
