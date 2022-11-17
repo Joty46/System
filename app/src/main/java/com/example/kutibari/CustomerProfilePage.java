@@ -2,10 +2,8 @@ package com.example.kutibari;
 
 import static androidx.constraintlayout.helper.widget.MotionEffect.TAG;
 
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
@@ -14,20 +12,12 @@ import android.widget.Button;
 import android.widget.GridView;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.google.android.material.button.MaterialButton;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
-import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.DatabaseError;
-import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.ValueEventListener;
 
-import java.util.Objects;
-
-public class MainActivity extends AppCompatActivity {
-
+public class CustomerProfilePage extends AppCompatActivity {
     /**
      * grid view and arrays for category of products
      */
@@ -35,7 +25,6 @@ public class MainActivity extends AppCompatActivity {
     public static int categoryImages[] = {R.drawable.craft1, R.drawable.craft2, R.drawable.craft3, R.drawable.craft4, R.drawable.craft5, R.drawable.craft6, R.drawable.craft7};
     public static String[] productName = {"cat1", "cat2", "cat3", "cat4", "cat5", "cat6", "cat7"};
     FirebaseAuth mAuth = FirebaseAuth.getInstance();
-    FirebaseDatabase reference;
 
     /**
      * grid view and arrays
@@ -49,7 +38,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_customer_profile_page);
 
         /**
          * gridview for product category
@@ -63,46 +52,25 @@ public class MainActivity extends AppCompatActivity {
         gridView = (GridView) findViewById(R.id.gridView);
         WomenAdapter adapter = new WomenAdapter(this);
         gridView.setAdapter(adapter);
-        reference=FirebaseDatabase.getInstance();
 
 
         /**
          * Image listener to show login dialogue;
          */
-        ImageView imageView = findViewById(R.id.image);
-//        TextView showtext = findViewById(R.id.login);
-
-        FirebaseUser fuser = FirebaseAuth.getInstance().getCurrentUser();
-        //Log.e(TAG, "onCreate: "+fuser.getEmail());
-        if (fuser == null) {
-            Intent intent=new Intent(MainActivity.this,LoginPage.class);
+        Button orderbtn;
+        orderbtn=findViewById(R.id.orderbtn);
+        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+        if (user == null) {
+            Intent intent=new Intent(CustomerProfilePage.this,LoginPage.class);
             Log.e(TAG, "onComplete: Login complete" );
             startActivity(intent);
         }
-        else {
-            String email = fuser.getEmail();
-            String phone=email.split("@")[0];
-            reference = FirebaseDatabase.getInstance();
-            reference.getReference().child("users").child(phone).addValueEventListener(new ValueEventListener() {
-                @Override
-                public void onDataChange(@NonNull DataSnapshot snapshot) {
-                    User user = snapshot.getValue(User.class);
-                     if (user.role.equals("ক্রেতা") || user.role.equals("Buyer")) {
-                        startActivity(new Intent(MainActivity.this, CustomerProfilePage.class));
-                        finish();
-                    }
-                }
 
-                @Override
-                public void onCancelled(@NonNull DatabaseError error) {
-
-                }
-            });
-        }
-        imageView.setOnClickListener(new View.OnClickListener() {
+        orderbtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(MainActivity.this, ProfilePage.class));
+                Intent intent=new Intent(CustomerProfilePage.this,CustomerOrderPage.class);
+                startActivity(intent);
             }
         });
 
@@ -114,7 +82,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 mAuth.signOut();
-                startActivity(new Intent(MainActivity.this, LoginPage.class));
+                startActivity(new Intent(CustomerProfilePage.this, LoginPage.class));
                 finish();
             }
         });
@@ -130,7 +98,7 @@ public class MainActivity extends AppCompatActivity {
         viewcatergory.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(MainActivity.this, MainList.class));
+                startActivity(new Intent(CustomerProfilePage.this, MainList.class));
                 finish();
             }
 

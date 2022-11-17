@@ -11,6 +11,7 @@ import android.app.Activity;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
+import android.os.SystemClock;
 import android.renderscript.ScriptGroup;
 import android.util.Log;
 import android.view.View;
@@ -86,7 +87,8 @@ public class UploadWorks extends AppCompatActivity {
     }
 
     private void uploadWork() {
-        id= UUID.randomUUID().toString();
+//        id= UUID.randomUUID().toString();
+        id= Long.toString(System.currentTimeMillis()/10000);
         title=editname.getText().toString();
         price=editprice.getText().toString();
         days=editday.getText().toString();
@@ -99,7 +101,7 @@ public class UploadWorks extends AppCompatActivity {
                     public void onSuccess(Uri uri) {
                         Product product=new Product(id,uri.toString(),title,price,days);
                         Log.e(TAG, "onSuccess: "+ mAuth.getCurrentUser().getEmail() );
-                        database.getReference().child(mAuth.getCurrentUser().getUid()).child("product").push().setValue(product).addOnSuccessListener(new OnSuccessListener<Void>() {
+                        database.getReference().child(mAuth.getCurrentUser().getUid()).child("product").child(id).setValue(product).addOnSuccessListener(new OnSuccessListener<Void>() {
                             @Override
                             public void onSuccess(Void unused) {
                                 Toast.makeText(getApplicationContext(),"product uploaded",Toast.LENGTH_SHORT);
@@ -109,7 +111,5 @@ public class UploadWorks extends AppCompatActivity {
                 });
             }
         });
-
-
     }
 }

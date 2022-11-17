@@ -43,7 +43,6 @@ public class LoginPage extends AppCompatActivity {
         final TextView regnow = findViewById(R.id.regnow);
         reference=FirebaseDatabase.getInstance();
         mAuth=FirebaseAuth.getInstance();
-
         loginbtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -65,9 +64,28 @@ public class LoginPage extends AppCompatActivity {
                         public void onComplete(@NonNull Task<AuthResult> task) {
                             if(task.isSuccessful())
                             {
+                                reference.getReference().child("users").child(mobile.getText().toString()).addValueEventListener(new ValueEventListener() {
+                                    @Override
+                                    public void onDataChange(@NonNull DataSnapshot snapshot) {
+                                        User user = snapshot.getValue(User.class);
+                                        if(user.role.equals("ক্রেতা") || user.role.equals("Buyer"))
+                                        {
+                                            startActivity(new Intent(LoginPage.this, CustomerProfilePage.class));
+                                            finish();
+                                        }
+                                        else
+                                        {
+                                            startActivity(new Intent(LoginPage.this, MainActivity.class));
+                                            finish();
+                                        }
+                                    }
+
+                                    @Override
+                                    public void onCancelled(@NonNull DatabaseError error) {
+
+                                    }
+                                });
                                 Log.e(TAG, "onComplete: Login complete" );
-                                startActivity(new Intent(LoginPage.this, MainActivity.class));
-                                finish();
                             }
                             else{
                                 Log.e(TAG, "onComplete: "+task.getException() );

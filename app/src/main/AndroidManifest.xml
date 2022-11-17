@@ -4,8 +4,10 @@
     package="com.example.kutibari">
 
     <uses-permission android:name="android.permission.INTERNET" />
-    <uses-feature android:name="android.hardware.camera"
-        android:required="true"/>
+
+    <uses-feature
+        android:name="android.hardware.camera"
+        android:required="true" />
 
     <application
         android:allowBackup="true"
@@ -17,6 +19,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.KutiBari"
         tools:targetApi="31">
+        <activity
+            android:name=".CustomerProfilePage"
+            android:exported="false" />
         <activity
             android:name=".RegisterScan"
             android:exported="false" />
@@ -67,7 +72,8 @@
             android:exported="true">
             <meta-data
                 android:name="com.google.firebase.ml.vision.DEPENDENCIES"
-                android:value="ocr"/>
+                android:value="ocr" />
+
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

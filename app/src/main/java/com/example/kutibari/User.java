@@ -1,12 +1,16 @@
 package com.example.kutibari;
 
 public class User {
-    String phone,username,password;
+    String phone,username,password,role;
 
-    public User(String phone, String username, String password) {
+    public User(String phone, String username, String password,String role) {
         this.phone = phone;
         this.username = username;
         this.password = password;
+        this.role=role;
+    }
+    public User() {
+        // Default constructor required for calls to DataSnapshot.getValue(User.class)
     }
 
     public String getPhone() {
@@ -31,5 +35,13 @@ public class User {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    public String getRole() {
+        return role;
+    }
+
+    public void setRole(String role) {
+        this.role = role;
     }
 }

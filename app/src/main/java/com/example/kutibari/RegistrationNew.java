@@ -34,6 +34,7 @@ public class RegistrationNew extends AppCompatActivity {
     FirebaseAuth mAuth;
     FirebaseUser mUser;
     FirebaseDatabase reference;
+    String role;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -46,9 +47,11 @@ public class RegistrationNew extends AppCompatActivity {
         final EditText username = findViewById(R.id.username);
         final EditText password = findViewById(R.id.password);
         final EditText conpass = findViewById(R.id.conpass);
+        final EditText userrole=findViewById(R.id.userrole);
 
         final MaterialButton register = findViewById(R.id.signup);
         final TextView login = findViewById(R.id.loginnow);
+
         mAuth=FirebaseAuth.getInstance();
         mUser=mAuth.getCurrentUser();
         reference=FirebaseDatabase.getInstance();
@@ -67,6 +70,7 @@ public class RegistrationNew extends AppCompatActivity {
                  String user_name = username.getText().toString();
                  String[] pass = {password.getText().toString()};
                  String confirm = conpass.getText().toString();
+                 role=userrole.getText().toString();
 
                 /**
                  * checking if all fields are fulfilled correctly
@@ -84,9 +88,9 @@ public class RegistrationNew extends AppCompatActivity {
                         public void onComplete(@NonNull Task<AuthResult> task) {
                             if(task.isSuccessful())
                             {
-                                User user=new User(phone,user_name,pass[0]);
+                                User user=new User(phone,user_name,pass[0],role);
                                 try {
-                                    reference.getReference().child("users").child(phone).push().setValue(user).addOnSuccessListener(new OnSuccessListener<Void>() {
+                                    reference.getReference().child("users").child(phone).setValue(user).addOnSuccessListener(new OnSuccessListener<Void>() {
                                         @Override
                                         public void onSuccess(Void unused) {
                                             sendUserToNextActivity();
