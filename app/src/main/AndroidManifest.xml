@@ -5,6 +5,10 @@
 
     <uses-permission android:name="android.permission.INTERNET" />
 
+    <uses-feature
+        android:name="android.hardware.camera"
+        android:required="true" />
+
     <application
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
@@ -15,6 +19,18 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.KutiBari"
         tools:targetApi="31">
+        <activity
+            android:name=".CustomerProfilePage"
+            android:exported="false" />
+        <activity
+            android:name=".RegisterScan"
+            android:exported="false" />
+        <activity
+            android:name=".CustomerOrderPage"
+            android:exported="false" />
+        <activity
+            android:name=".UploadWorks"
+            android:exported="false" />
         <activity
             android:name=".OrderDetails"
             android:exported="false" />
@@ -54,6 +70,10 @@
         <activity
             android:name=".MainActivity"
             android:exported="true">
+            <meta-data
+                android:name="com.google.firebase.ml.vision.DEPENDENCIES"
+                android:value="ocr" />
+
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

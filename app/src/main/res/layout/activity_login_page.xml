@@ -11,7 +11,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/signin"
-        android:text="Sign in"
+        android:text="লগইন করুন"
         android:textColor="@color/white"
         android:textSize="35dp"
         android:textStyle="bold"
@@ -30,7 +30,7 @@
         android:background="#30ffffff"
         android:drawableLeft="@drawable/ic_baseline_local_phone_24"
         android:drawablePadding="15dp"
-        android:hint="Phone Number"
+        android:hint="মোবাইল নাম্বার"
         android:inputType="phone"
         android:padding="20dp"
         android:textColor="@color/white"
@@ -49,7 +49,7 @@
         android:background="#30ffffff"
         android:drawableLeft="@drawable/ic_baseline_vpn_key_24"
         android:drawablePadding="15dp"
-        android:hint="Password"
+        android:hint="গোপন পিন নাম্বার দিন"
         android:padding="20dp"
         android:textColor="@color/white"
         android:textColorHint="@color/white" />
@@ -61,14 +61,14 @@
         android:layout_below="@+id/password"
         android:layout_centerHorizontal="true"
         android:backgroundTint="@color/purple_700"
-        android:text="LOGIN" />
+        android:text="লগইন" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/forgotpass"
         android:layout_below="@+id/loginbtn"
-        android:text="Forgot Password?"
+        android:text="গোপন পিন নাম্বারটি ভুলে গেছেন?"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="200dp"/>
 
@@ -83,13 +83,13 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Don't have an account?"/>
+            android:text="নতুন অ্যাকাউন্ট খুলতে চান?"/>
         <TextView
             android:id="@+id/regnow"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="5dp"
-            android:text="Register Now"
+            android:text="অ্যাকাউন্ট খুলুন"
             android:textStyle="bold"/>
     </LinearLayout>
 

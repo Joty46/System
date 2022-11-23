@@ -11,7 +11,7 @@
         android:id="@+id/createdialog"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Create Account"
+        android:text="অ্যাকাউন্ট খুলুন"
         android:textStyle="bold"
         android:textSize="35dp"
         android:layout_centerHorizontal="true"
@@ -31,7 +31,7 @@
         android:background="#30ffffff"
         android:drawableLeft="@drawable/ic_baseline_local_phone_24"
         android:drawablePadding="15dp"
-        android:hint="Mobile number"
+        android:hint="মোবাইল নাম্বার"
         android:padding="20dp"
         android:textColor="@color/white"
         android:textColorHint="@color/white" />
@@ -50,7 +50,24 @@
         android:background="#30ffffff"
         android:drawableLeft="@drawable/ic_baseline_person_24"
         android:drawablePadding="15dp"
-        android:hint="Username"
+        android:hint="ব্যবহারকারীর নাম"
+        android:padding="20dp"
+        android:textColor="@color/white"
+        android:textColorHint="@color/white" />
+    <EditText
+        android:id="@+id/userrole"
+        android:inputType="text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/username"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="24dp"
+        android:layout_marginBottom="24dp"
+        android:background="#30ffffff"
+        android:drawableLeft="@drawable/ic_baseline_person_24"
+        android:drawablePadding="15dp"
+        android:hint="ব্যবহারকারীর ভুমিকা"
         android:padding="20dp"
         android:textColor="@color/white"
         android:textColorHint="@color/white" />
@@ -60,7 +77,7 @@
         android:inputType="textPassword"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/username"
+        android:layout_below="@id/userrole"
         android:layout_marginStart="24dp"
         android:layout_marginTop="10dp"
         android:layout_marginEnd="24dp"
@@ -68,7 +85,7 @@
         android:background="#30ffffff"
         android:drawableLeft="@drawable/ic_baseline_vpn_key_24"
         android:drawablePadding="15dp"
-        android:hint="Password"
+        android:hint="গোপন পিন নাম্বার দিন"
         android:padding="20dp"
         android:textColor="@color/white"
         android:textColorHint="@color/white" />
@@ -87,7 +104,7 @@
         android:background="#30ffffff"
         android:drawableLeft="@drawable/ic_baseline_vpn_key_24"
         android:drawablePadding="15dp"
-        android:hint="Confirm Password"
+        android:hint="গোপন পিন নাম্বারটি পুনরায় লিখুন"
         android:padding="20dp"
         android:textColor="@color/white"
         android:textColorHint="@color/white" />
@@ -99,7 +116,7 @@
         android:layout_below="@+id/conpass"
         android:layout_centerHorizontal="true"
         android:backgroundTint="@color/purple_700"
-        android:text="Register"
+        android:text="রেজিস্টার"
         android:layout_marginTop="40dp"/>
 
     <LinearLayout
@@ -113,14 +130,14 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Already have an account?"
+            android:text="আপনার কি ইতিমধ্যে অ্যাকাউন্ট আছে?"
             android:textColor="@color/white"/>
         <TextView
             android:id="@+id/loginnow"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="5dp"
-            android:text="Login Now"
+            android:text="লগইন করুন"
             android:textStyle="bold"
             android:textColor="@color/white"/>
     </LinearLayout>

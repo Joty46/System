@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".RegisterScan">
+
+    <TextView
+        android:id="@+id/heading"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="আপনার জাতীয় পরিচয়পত্রের ছবি তুলুন"
+        android:textSize="16dp"
+        android:textColor="@color/purple_700"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="10dp"/>
+
+    <ImageView
+        android:id="@+id/image_view"
+        android:layout_width="match_parent"
+        android:layout_height="400dp"
+        android:layout_below="@+id/heading"/>
+
+    <TextView
+        android:id="@+id/text_display"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text=""
+        android:layout_below="@id/image_view"
+        android:textSize="24dp"
+        android:maxLines="5"
+        android:layout_margin="10dp"/>
+
+    <Button
+        android:id="@+id/capture_image"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="ছবি তুলুন"
+        android:textAllCaps="false"
+        android:layout_above="@id/detect_text_image"
+        android:background="@color/teal_700"
+        android:layout_margin="10dp"/>
+
+
+    <Button
+        android:id="@+id/detect_text_image"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginBottom="10dp"
+        android:background="@color/ic_launcher_background"
+        android:text="নিশ্চিত করুন"
+        android:textAllCaps="false" />
+
+</RelativeLayout>

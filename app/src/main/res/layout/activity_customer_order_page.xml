@@ -4,134 +4,119 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/images2"
-    tools:context=".OrderDetails">
-
+    android:background="@drawable/images7"
+    tools:context=".MainActivity">
 
     <TextView
-        android:id="@+id/orderstxt"
+        android:id="@+id/orderforsellertxt"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="অর্ডারের বিস্তারিত তথ্য"
         android:textColor="#E8FFFFFF"
         android:textSize="35dp"
         android:textStyle="bold"
-        android:layout_margin="40dp"
+        android:layout_marginTop="30dp"
         android:gravity="center"
         />
+
     <TextView
-        android:id="@+id/orderwho"
+        android:id="@+id/txtforwhattoorder"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/orderstxt"
+        android:layout_below="@id/orderforsellertxt"
         android:paddingLeft="24dp"
-        android:text="কে অর্ডার করেছেন:"
+        android:text="Which product do you want to order :"
         android:textColor="#E8FFFFFF"
         android:textSize="20dp"
         android:textStyle="italic"
         android:layout_margin="5dp"
         />
 
-    <TextView
-        android:id="@+id/orderusername"
+    <EditText
+        android:id="@+id/whatordertxt"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/orderwho"
+        android:layout_below="@id/txtforwhattoorder"
         android:layout_marginTop="5dp"
         android:layout_marginStart="24dp"
         android:layout_marginEnd="24dp"
         android:layout_marginBottom="10dp"
         android:background="#30ffffff"
         android:drawablePadding="20dp"
-        android:hint="নাম"
         android:padding="20dp"
         android:textColor="@color/white"
         android:textColorHint="@color/white" />
     <TextView
-        android:id="@+id/orderwhere"
+        android:id="@+id/txtforqty"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/orderusername"
+        android:layout_below="@id/whatordertxt"
         android:paddingLeft="24dp"
-        android:text="কোথায় অর্ডার পৌঁছে দিতে হবে :"
+        android:text="Quantity :"
         android:textColor="#E8FFFFFF"
         android:textSize="20dp"
         android:textStyle="italic"
         android:layout_margin="5dp"
         />
 
-    <TextView
-        android:id="@+id/orderlocation"
+    <EditText
+        android:id="@+id/qtytxt"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/orderwhere"
+        android:layout_below="@id/txtforqty"
         android:layout_marginTop="5dp"
         android:layout_marginStart="24dp"
         android:layout_marginEnd="24dp"
         android:layout_marginBottom="10dp"
         android:background="#30ffffff"
         android:drawablePadding="20dp"
-        android:hint="ঠিকানা"
         android:padding="20dp"
         android:textColor="@color/white"
         android:textColorHint="@color/white" />
     <TextView
-        android:id="@+id/orderwhatqty"
+        android:id="@+id/txtforpayment"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_below="@id/qtytxt"
         android:paddingLeft="24dp"
-        android:layout_below="@id/orderlocation"
-        android:text="পরিমাণ :"
+        android:text="Payment :"
         android:textColor="#E8FFFFFF"
         android:textSize="20dp"
         android:textStyle="italic"
         android:layout_margin="5dp"
         />
-
-    <TextView
-        android:id="@+id/orderquantity"
+    <EditText
+        android:id="@+id/payment"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/orderwhatqty"
+        android:layout_below="@id/txtforpayment"
         android:layout_marginTop="5dp"
         android:layout_marginStart="24dp"
         android:layout_marginEnd="24dp"
         android:layout_marginBottom="10dp"
         android:background="#30ffffff"
         android:drawablePadding="20dp"
-        android:hint="পরিমাণ"
         android:padding="20dp"
         android:textColor="@color/white"
         android:textColorHint="@color/white" />
-
-    <TextView
-        android:id="@+id/orderrecommendation"
-        android:layout_width="match_parent"
+    <com.google.android.material.button.MaterialButton
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/orderquantity"
-        android:text="বিশেষ কোন তথ্য/ সুপারিশ:"
-        android:paddingLeft="24dp"
-        android:textColor="#E8FFFFFF"
-        android:textSize="20dp"
-        android:textStyle="italic"
-        android:layout_margin="5dp"
+        android:id="@+id/regbtn"
+        android:text="CONFIRM"
+        android:textSize="25dp"
+        android:layout_below="@id/payment"
+        android:layout_centerHorizontal="true"
+        android:backgroundTint="@color/teal_200"
+        android:layout_margin="20dp"
         />
 
-    <TextView
-        android:id="@+id/orderspecialrec"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/orderrecommendation"
-        android:layout_marginTop="5dp"
-        android:layout_marginStart="24dp"
-        android:layout_marginEnd="24dp"
-        android:layout_marginBottom="10dp"
-        android:background="#30ffffff"
-        android:drawablePadding="20dp"
-        android:hint="নেই"
-        android:padding="20dp"
-        android:textColor="@color/white"
-        android:textColorHint="@color/white" />
+
+
+
+
+
+
 
 
 </RelativeLayout>

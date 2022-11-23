@@ -7,29 +7,20 @@
     tools:context=".MainActivity">
 
 
-    <ImageView
-        android:id="@+id/image"
-        android:layout_width="80dp"
-        android:layout_height="80dp"
-        android:layout_marginTop="10dp"
-        android:scaleType="centerCrop"
-        android:layout_centerHorizontal="true"
-        android:src="@drawable/undraw_profile_pic_re_78k0" />
-    <TextView
-        android:id="@+id/yourprofile"
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/orderbtn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/image"
-        android:layout_marginTop="-10dp"
-        android:text="আপনার প্রোফাইল"
-        android:textStyle="bold"
-        android:layout_centerHorizontal="true"/>
+        android:layout_marginTop="50dp"
+        android:layout_centerHorizontal="true"
+        android:backgroundTint="@color/purple_700"
+        android:text="অর্ডার করুন" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/artisandialog"
-        android:layout_below="@id/yourprofile"
+        android:layout_below="@id/orderbtn"
         android:layout_marginTop="10dp"
         android:layout_marginLeft="10dp"
         android:text="আমাদের কারিগর"
@@ -37,7 +28,7 @@
         android:textColor="#454242"/>
 
 
-<!--    woman scroll-->
+    <!--    woman scroll-->
     <HorizontalScrollView
         android:id="@+id/scrollaritsan"
         android:layout_width="match_parent"
