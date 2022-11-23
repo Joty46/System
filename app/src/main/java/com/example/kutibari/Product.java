@@ -2,6 +2,9 @@ package com.example.kutibari;
 
 public class Product {
     private String id,image,title,price,days;
+    public Product(){
+
+    }
 
     public Product(String id, String image, String title, String price, String days) {
         this.id = id;

@@ -8,7 +8,7 @@
     tools:context=".MainActivity">
 
     <TextView
-        android:id="@+id/orderstxt"
+        android:id="@+id/workstxt"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="30dp"
@@ -22,7 +22,7 @@
         android:id="@+id/imageforworks"
         android:layout_width="150dp"
         android:layout_height="150dp"
-        android:layout_below="@id/orderstxt"
+        android:layout_below="@id/workstxt"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="5dp"
         android:background="@drawable/product" />
@@ -128,8 +128,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/publicopinion"
-        android:layout_marginTop="5dp"
         android:layout_marginStart="24dp"
+        android:layout_marginTop="5dp"
         android:layout_marginEnd="24dp"
         android:layout_marginBottom="10dp"
         android:background="#30ffffff"
