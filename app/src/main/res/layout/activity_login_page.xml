@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/background"
+    android:background="@drawable/images10"
     tools:context=".LoginPage">
 
     <TextView
@@ -58,7 +58,8 @@
         android:id="@+id/loginbtn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/password"
+        android:layout_above="@+id/forgotpass"
+        android:layout_marginBottom="80dp"
         android:layout_centerHorizontal="true"
         android:backgroundTint="@color/purple_700"
         android:text="লগইন" />
@@ -67,30 +68,34 @@
         android:id="@+id/forgotpass"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/loginbtn"
+        android:layout_above="@+id/lastdialog"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="200dp"
-        android:text="গোপন পিন নাম্বারটি ভুলে গেছেন?" />
+        android:layout_marginBottom="10dp"
+        android:text="গোপন পিন নাম্বারটি ভুলে গেছেন?"
+        android:textColor="@color/white"/>
 
     <LinearLayout
+        android:id="@+id/lastdialog"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         android:gravity="center"
-        android:layout_marginTop="10dp"
-        android:layout_below="@+id/forgotpass"
+        android:layout_marginBottom="30dp"
+        android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true">
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="নতুন অ্যাকাউন্ট খুলতে চান?"/>
+            android:text="নতুন অ্যাকাউন্ট খুলতে চান?"
+            android:textColor="@color/white"/>
         <TextView
             android:id="@+id/regnow"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="5dp"
             android:text="অ্যাকাউন্ট খুলুন"
-            android:textStyle="bold"/>
+            android:textStyle="bold"
+            android:textColor="@color/white"/>
     </LinearLayout>
 
 </RelativeLayout>

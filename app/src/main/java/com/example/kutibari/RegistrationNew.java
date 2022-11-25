@@ -2,9 +2,6 @@ package com.example.kutibari;
 
 import static androidx.constraintlayout.widget.Constraints.TAG;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
@@ -13,6 +10,9 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
@@ -20,11 +20,7 @@ import com.google.android.material.button.MaterialButton;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
-import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.DatabaseError;
-import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.ValueEventListener;
 
 public class RegistrationNew extends AppCompatActivity {
     /**
@@ -44,6 +40,7 @@ public class RegistrationNew extends AppCompatActivity {
          * code
          */
         final EditText mobile = findViewById(R.id.mobile);
+        final EditText mailid = findViewById(R.id.email);
         final EditText username = findViewById(R.id.username);
         final EditText password = findViewById(R.id.password);
         final EditText conpass = findViewById(R.id.conpass);
@@ -66,7 +63,8 @@ public class RegistrationNew extends AppCompatActivity {
                  * get data into string form from edit text
                  */
                  String phone = mobile.getText().toString();
-                 String authemail = mobile.getText().toString()+"@gmail.com";
+                 String authemail = mobile.getText().toString();
+                 String mail = mailid.getText().toString();
                  String user_name = username.getText().toString();
                  String[] pass = {password.getText().toString()};
                  String confirm = conpass.getText().toString();
@@ -88,7 +86,7 @@ public class RegistrationNew extends AppCompatActivity {
                         public void onComplete(@NonNull Task<AuthResult> task) {
                             if(task.isSuccessful())
                             {
-                                User user=new User(phone,user_name,pass[0],role);
+                                User user=new User(phone,mail,user_name,pass[0],role);
                                 try {
                                     reference.getReference().child("users").child(phone).setValue(user).addOnSuccessListener(new OnSuccessListener<Void>() {
                                         @Override
@@ -117,6 +115,7 @@ public class RegistrationNew extends AppCompatActivity {
         login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                startActivity(new Intent(RegistrationNew.this,LoginPage.class));
                 finish();
             }
         });
@@ -126,5 +125,6 @@ public class RegistrationNew extends AppCompatActivity {
         Intent intent=new Intent(RegistrationNew.this,LoginPage.class);
         intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK|Intent.FLAG_ACTIVITY_NEW_TASK);
         startActivity(intent);
+        finish();
     }
 }
