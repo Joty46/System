@@ -48,5 +48,6 @@ dependencies {
     //noinspection OutdatedLibrary
     implementation 'com.google.firebase:firebase-ml-vision:24.0.3'
     implementation 'com.google.firebase:firebase-analytics'
+    implementation 'com.squareup.picasso:picasso:2.71828'
 }
 apply plugin: 'com.google.gms.google-services'

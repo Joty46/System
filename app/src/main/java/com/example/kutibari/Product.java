@@ -1,7 +1,11 @@
 package com.example.kutibari;
 
+import android.media.Image;
+import android.widget.ImageView;
+
 public class Product {
-    private String id,image,title,price,days;
+    private String id,title,price,days;
+    private String image;
     public Product(){
 
     }
