@@ -20,6 +20,12 @@
         android:theme="@style/Theme.KutiBari"
         tools:targetApi="31">
         <activity
+            android:name=".OtpSend"
+            android:exported="false" />
+        <activity
+            android:name=".OtpVerify"
+            android:exported="false" />
+        <activity
             android:name=".CustomerProfilePage"
             android:exported="false" />
         <activity

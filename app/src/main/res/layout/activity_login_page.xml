@@ -64,13 +64,13 @@
         android:text="লগইন" />
 
     <TextView
+        android:id="@+id/forgotpass"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/forgotpass"
         android:layout_below="@+id/loginbtn"
-        android:text="গোপন পিন নাম্বারটি ভুলে গেছেন?"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="200dp"/>
+        android:layout_marginTop="200dp"
+        android:text="গোপন পিন নাম্বারটি ভুলে গেছেন?" />
 
     <LinearLayout
         android:layout_width="wrap_content"

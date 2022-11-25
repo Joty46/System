@@ -49,5 +49,7 @@ dependencies {
     implementation 'com.google.firebase:firebase-ml-vision:24.0.3'
     implementation 'com.google.firebase:firebase-analytics'
     implementation 'com.squareup.picasso:picasso:2.71828'
+    //notnull org
+    implementation 'org.jetbrains:annotations:16.0.2'
 }
 apply plugin: 'com.google.gms.google-services'
