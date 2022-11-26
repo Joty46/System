@@ -48,7 +48,7 @@ public class LoginPage extends AppCompatActivity {
                 /**
                  * code
                  */
-                final String phone = mobile.getText().toString()+"@gmail.com";
+                final String phone = mobile.getText().toString();
                 final String[] pass = {password.getText().toString()};
 
                 if(phone.isEmpty()){
@@ -130,6 +130,7 @@ public class LoginPage extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(LoginPage.this, RegisterScan.class));
+                finish();
             }
         });
 

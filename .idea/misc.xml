@@ -35,10 +35,12 @@
         <entry key="..\:/final1/app/src/main/res/drawable/border.xml" value="0.174" />
         <entry key="..\:/final1/app/src/main/res/drawable/border_right.xml" value="0.174" />
         <entry key="..\:/final1/app/src/main/res/layout/activity_forget_password.xml" value="0.22" />
-        <entry key="..\:/final1/app/src/main/res/layout/activity_login_page.xml" value="0.33" />
+        <entry key="..\:/final1/app/src/main/res/layout/activity_login_page.xml" value="0.2" />
         <entry key="..\:/final1/app/src/main/res/layout/activity_new_password.xml" value="0.20416666666666666" />
         <entry key="..\:/final1/app/src/main/res/layout/activity_otp_send.xml" value="0.20416666666666666" />
         <entry key="..\:/final1/app/src/main/res/layout/activity_otp_verify.xml" value="0.25" />
+        <entry key="..\:/final1/app/src/main/res/layout/activity_register_scan.xml" value="0.20416666666666666" />
+        <entry key="..\:/final1/app/src/main/res/layout/activity_registration_new.xml" value="0.25" />
         <entry key="..\:/final1/app/src/main/res/layout/activity_verification_page.xml" value="0.20416666666666666" />
         <entry key="..\:/xampp/htdocs/kutibari/app/src/main/res/layout-sw600dp/activity_registration_page.xml" value="0.14651639344262296" />
         <entry key="..\:/xampp/htdocs/kutibari/app/src/main/res/layout/activity_category_list.xml" value="0.22" />
