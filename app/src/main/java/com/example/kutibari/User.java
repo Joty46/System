@@ -3,14 +3,14 @@ package com.example.kutibari;
 public class User {
     String phone,mail,username,password,role;
 
-    public User(String phone, String username, String password,String role) {
+    public User(String phone, String mail, String username, String password,String role) {
         this.phone = phone;
         this.mail = mail;
         this.username = username;
         this.password = password;
         this.role=role;
     }
-    public User(String phone, String mail, String user_name, String pass, String role) {
+    public User() {
         // Default constructor required for calls to DataSnapshot.getValue(User.class)
     }
 

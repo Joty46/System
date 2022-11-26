@@ -81,7 +81,7 @@ public class RegistrationNew extends AppCompatActivity {
                     Toast.makeText(RegistrationNew.this,"Passwords are not matched",Toast.LENGTH_SHORT).show();
                 }
                 else{
-                    mAuth.createUserWithEmailAndPassword(authemail,pass[0]).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+                    mAuth.createUserWithEmailAndPassword(mail,pass[0]).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                         @Override
                         public void onComplete(@NonNull Task<AuthResult> task) {
                             if(task.isSuccessful())
