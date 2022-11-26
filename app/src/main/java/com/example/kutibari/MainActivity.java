@@ -88,7 +88,7 @@ public class MainActivity extends AppCompatActivity {
                 @Override
                 public void onDataChange(@NonNull DataSnapshot snapshot) {
                     User user = snapshot.getValue(User.class);
-                     if (user.role.equals("ক্রেতা") || user.role.equals("Buyer")) {
+                    if (user.role.equals("ক্রেতা") || user.role.equals("Buyer")) {
                         startActivity(new Intent(MainActivity.this, CustomerProfilePage.class));
                         finish();
                     }

@@ -37,6 +37,10 @@ public class OtpSend extends AppCompatActivity {
     private ActivityOtpSendBinding binding;
     private FirebaseAuth mAuth;
     private PhoneAuthProvider.OnVerificationStateChangedCallbacks mCallbacks;
+//    String authphone=binding.etPhone.getText().toString();
+//    String[] parts=authphone.split("@");
+//    String phone=parts[0];
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,6 +53,7 @@ public class OtpSend extends AppCompatActivity {
         binding.btnSend.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
                 if (binding.etPhone.getText().toString().trim().isEmpty()) {
                     Toast.makeText(OtpSend.this, "Invalid Phone Number", Toast.LENGTH_SHORT).show();
                 } else if (binding.etPhone.getText().toString().trim().length() != 10) {
@@ -83,6 +88,9 @@ public class OtpSend extends AppCompatActivity {
                                    @NonNull PhoneAuthProvider.ForceResendingToken token) {
                 binding.progressBar.setVisibility(View.GONE);
                 binding.btnSend.setVisibility(View.VISIBLE);
+//                String authphone=binding.etPhone.getText().toString();
+//                String[] parts=authphone.split("@");
+//                String phone=parts[0];
                 Toast.makeText(OtpSend.this, "OTP is successfully send.", Toast.LENGTH_SHORT).show();
                 Intent intent = new Intent(OtpSend.this, OtpVerify.class);
                 intent.putExtra("phone", binding.etPhone.getText().toString().trim());
