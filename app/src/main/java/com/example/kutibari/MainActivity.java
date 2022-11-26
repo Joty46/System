@@ -81,10 +81,10 @@ public class MainActivity extends AppCompatActivity {
             startActivity(intent);
         }
         else {
-            String email = fuser.getEmail();
-            String phone=email.split("@")[0];
+            String email = fuser.getUid();
+           // String phone=email.split("@")[0];
             reference = FirebaseDatabase.getInstance();
-            reference.getReference().child("users").child(phone).addValueEventListener(new ValueEventListener() {
+            reference.getReference().child("users").child(email).addValueEventListener(new ValueEventListener() {
                 @Override
                 public void onDataChange(@NonNull DataSnapshot snapshot) {
                     User user = snapshot.getValue(User.class);

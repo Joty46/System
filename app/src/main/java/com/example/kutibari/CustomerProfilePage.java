@@ -2,6 +2,7 @@ package com.example.kutibari;
 
 import static androidx.constraintlayout.helper.widget.MotionEffect.TAG;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
@@ -16,6 +17,11 @@ import android.widget.TextView;
 import com.google.android.material.button.MaterialButton;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 public class CustomerProfilePage extends AppCompatActivity {
     /**
@@ -25,6 +31,7 @@ public class CustomerProfilePage extends AppCompatActivity {
     public static int categoryImages[] = {R.drawable.craft1, R.drawable.craft2, R.drawable.craft3, R.drawable.craft4, R.drawable.craft5, R.drawable.craft6, R.drawable.craft7};
     public static String[] productName = {"cat1", "cat2", "cat3", "cat4", "cat5", "cat6", "cat7"};
     FirebaseAuth mAuth = FirebaseAuth.getInstance();
+    FirebaseDatabase reference;
 
     /**
      * grid view and arrays
@@ -52,6 +59,7 @@ public class CustomerProfilePage extends AppCompatActivity {
         gridView = (GridView) findViewById(R.id.gridView);
         WomenAdapter adapter = new WomenAdapter(this);
         gridView.setAdapter(adapter);
+        reference= FirebaseDatabase.getInstance();
 
 
         /**
@@ -60,19 +68,32 @@ public class CustomerProfilePage extends AppCompatActivity {
         Button orderbtn;
         orderbtn=findViewById(R.id.orderbtn);
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
-        if (user == null) {
-            Intent intent=new Intent(CustomerProfilePage.this,LoginPage.class);
-            Log.e(TAG, "onComplete: Login complete" );
-            startActivity(intent);
-        }
-
-        orderbtn.setOnClickListener(new View.OnClickListener() {
+        String uuid=user.getUid();
+        reference.getReference().child("users").child(uuid).addValueEventListener(new ValueEventListener() {
             @Override
-            public void onClick(View v) {
-                Intent intent=new Intent(CustomerProfilePage.this,CustomerOrderPage.class);
-                startActivity(intent);
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                User user = snapshot.getValue(User.class);
+                if(user.role.equals("বিক্রেতাা") || user.role.equals("Seller"))
+                {
+                    startActivity(new Intent(CustomerProfilePage.this,MainActivity.class));
+                    finish();
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
             }
         });
+
+
+                orderbtn.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        Intent intent = new Intent(CustomerProfilePage.this, CustomerOrderPage.class);
+                        startActivity(intent);
+                    }
+                });
 
         /**
          * login button for going to login page

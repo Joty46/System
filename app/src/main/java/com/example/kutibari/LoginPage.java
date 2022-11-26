@@ -36,7 +36,7 @@ public class LoginPage extends AppCompatActivity {
         /**
          * login page work
          */
-        final EditText mobile = findViewById(R.id.phone);
+        final EditText mobile = findViewById(R.id.email);
         final EditText password = findViewById(R.id.password);
         final MaterialButton loginbtn = findViewById(R.id.loginbtn);
         final TextView regnow = findViewById(R.id.regnow);
@@ -63,27 +63,12 @@ public class LoginPage extends AppCompatActivity {
                         public void onComplete(@NonNull Task<AuthResult> task) {
                             if(task.isSuccessful())
                             {
-                                reference.getReference().child("users").child(mobile.getText().toString()).addValueEventListener(new ValueEventListener() {
-                                    @Override
-                                    public void onDataChange(@NonNull DataSnapshot snapshot) {
-                                        User user = snapshot.getValue(User.class);
-                                        if(user.role.equals("ক্রেতা") || user.role.equals("Buyer"))
-                                        {
+
                                             startActivity(new Intent(LoginPage.this, CustomerProfilePage.class));
                                             finish();
-                                        }
-                                        else
-                                        {
-                                            startActivity(new Intent(LoginPage.this, MainActivity.class));
-                                            finish();
-                                        }
-                                    }
 
-                                    @Override
-                                    public void onCancelled(@NonNull DatabaseError error) {
 
-                                    }
-                                });
+
                                 Log.e(TAG, "onComplete: Login complete" );
                             }
                             else{

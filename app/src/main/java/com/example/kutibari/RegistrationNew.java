@@ -86,9 +86,11 @@ public class RegistrationNew extends AppCompatActivity {
                         public void onComplete(@NonNull Task<AuthResult> task) {
                             if(task.isSuccessful())
                             {
+                                String uuid=task.getResult().getUser().getUid();
+                                Log.e(TAG, "onComplete: "+uuid);
                                 User user=new User(phone,mail,user_name,pass[0],role);
                                 try {
-                                    reference.getReference().child("users").child(phone).setValue(user).addOnSuccessListener(new OnSuccessListener<Void>() {
+                                    reference.getReference().child("users").child(uuid).setValue(user).addOnSuccessListener(new OnSuccessListener<Void>() {
                                         @Override
                                         public void onSuccess(Void unused) {
                                             sendUserToNextActivity();
