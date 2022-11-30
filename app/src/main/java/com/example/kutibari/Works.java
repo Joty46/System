@@ -1,5 +1,7 @@
 package com.example.kutibari;
 
+import static androidx.constraintlayout.helper.widget.MotionEffect.TAG;
+
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.collection.CircularArray;
@@ -7,6 +9,7 @@ import androidx.collection.CircularArray;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
+import android.util.Log;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -23,6 +26,7 @@ public class Works extends AppCompatActivity {
     ImageView wimage;
     TextView wtitle,wprice,wdays;
     DatabaseReference reference;
+    String uuid;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,8 +38,14 @@ public class Works extends AppCompatActivity {
         wdays=findViewById(R.id.days);
         Intent intent=getIntent();
         String uid=intent.getStringExtra("Uid");
-        FirebaseUser user=FirebaseAuth.getInstance().getCurrentUser();
-        String uuid=user.getUid();
+        String from=intent.getStringExtra("from");
+        if(from.equals("catagoryadapter")){
+            uuid=intent.getStringExtra("Uuid");
+        }
+        else{
+            FirebaseUser user=FirebaseAuth.getInstance().getCurrentUser();
+            uuid=user.getUid();
+        }
         reference= FirebaseDatabase.getInstance().getReference(uuid).child("product");
         reference.addValueEventListener(new ValueEventListener() {
             @Override

@@ -5,6 +5,7 @@ import static androidx.constraintlayout.helper.widget.MotionEffect.TAG;
 import androidx.activity.result.ActivityResultCallback;
 import androidx.activity.result.ActivityResultLauncher;
 import androidx.activity.result.contract.ActivityResultContracts;
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.Activity;
@@ -25,7 +26,11 @@ import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
@@ -40,10 +45,12 @@ public class UploadWorks extends AppCompatActivity {
     Uri ur;
     Button uploadworks;
     private String id,title,price,days;
-    FirebaseDatabase database;
+    FirebaseDatabase database,database2;
     FirebaseStorage storage;
     ActivityResultLauncher<String> launcher ;
     FirebaseAuth mAuth=FirebaseAuth.getInstance();
+    String uname;
+    String uid;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -56,6 +63,7 @@ public class UploadWorks extends AppCompatActivity {
         uploadworks=findViewById(R.id.submitworks);
         editname=findViewById(R.id.editname);
         database=FirebaseDatabase.getInstance();
+        database2=FirebaseDatabase.getInstance();
         storage=FirebaseStorage.getInstance();
         launcher= registerForActivityResult(new ActivityResultContracts.GetContent(), new ActivityResultCallback<Uri>() {
             @Override
@@ -101,6 +109,29 @@ public class UploadWorks extends AppCompatActivity {
                     public void onSuccess(Uri uri) {
                         Product product=new Product(id,uri.toString(),title,price,days);
                         Log.e(TAG, "onSuccess: "+ mAuth.getCurrentUser().getEmail() );
+                        uid=mAuth.getCurrentUser().getUid();
+
+                        database2.getReference().child("users").child(uid).addValueEventListener(new ValueEventListener() {
+                            @Override
+                            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                                User user=snapshot.getValue(User.class);
+                                uname=user.getUsername();
+                                Log.e(TAG, "onDataChange: "+uname );
+                                AllProduct allProduct=new AllProduct(id,title,uname,uid,uri.toString());
+                                database2.getReference().child("AllProduct").child(id).setValue(allProduct).addOnSuccessListener(new OnSuccessListener<Void>() {
+                                    @Override
+                                    public void onSuccess(Void unused) {
+                                        Toast.makeText(getApplicationContext(),"product uploaded",Toast.LENGTH_SHORT);
+                                    }
+                                });
+                            }
+
+                            @Override
+                            public void onCancelled(@NonNull DatabaseError error) {
+
+                            }
+                        });
+
                         database.getReference().child(mAuth.getCurrentUser().getUid()).child("product").child(id).setValue(product).addOnSuccessListener(new OnSuccessListener<Void>() {
                             @Override
                             public void onSuccess(Void unused) {

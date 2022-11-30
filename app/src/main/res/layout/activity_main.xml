@@ -28,123 +28,40 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/artisandialog"
+        android:id="@+id/productdialog"
         android:layout_below="@id/yourprofile"
         android:layout_marginTop="10dp"
         android:layout_marginLeft="10dp"
-        android:text="আমাদের কারিগর"
+        android:text="আমাদের পন্য"
         android:textSize="25dp"
         android:textColor="#454242"/>
-
-
-<!--    woman scroll-->
-    <HorizontalScrollView
-        android:id="@+id/scrollaritsan"
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/productlist"
         android:layout_width="match_parent"
-        android:layout_height="190dp"
-        android:layout_below="@+id/artisandialog"
-        android:layout_marginTop="-5dp">
-        <FrameLayout
-            android:layout_width="fill_parent"
-            android:layout_height="match_parent">
-            <LinearLayout
-                android:id="@+id/categorygrid"
-                android:layout_width="1050dp"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal">
-                <GridView
-                    android:id="@+id/gridView"
-                    android:layout_width="fill_parent"
-                    android:layout_height="fill_parent"
-                    android:layout_margin="4dp"
-                    android:columnWidth="150dp"
-                    android:gravity="center"
-                    android:numColumns="500"
-                    android:horizontalSpacing="1dp"
-                    android:scrollbarAlwaysDrawHorizontalTrack="true"
-                    android:scrollbarAlwaysDrawVerticalTrack="true"
-                    android:scrollbars="horizontal"
-                    android:stretchMode="none"
-                    android:verticalSpacing="1dp"/>
-            </LinearLayout>
-        </FrameLayout>
-    </HorizontalScrollView>
-
-
-    <TextView
-        android:id="@+id/artisanlist"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/scrollaritsan"
-        android:layout_alignParentRight="true"
+        android:layout_below="@id/productdialog"
+        android:layout_height="500dp"
         android:layout_marginTop="5dp"
-        android:layout_marginRight="16dp"
-        android:text="পুরো লিস্ট দেখুন"
-        android:textColor="#494747" />
-
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
     <TextView
-        android:id="@+id/categorydialog"
+        android:id="@+id/showartist"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/artisanlist"
-        android:layout_marginLeft="10dp"
-        android:text="পণ্য ক্যাটাগরি"
-        android:textColor="#454242"
-        android:textSize="25dp" />
-
-    <HorizontalScrollView
-        android:id="@+id/scrollproducts"
-        android:layout_width="match_parent"
-        android:layout_height="190dp"
-        android:layout_below="@+id/categorydialog"
-        android:layout_marginTop="-5dp">
-
-        <FrameLayout
-            android:layout_width="fill_parent"
-            android:layout_height="match_parent">
-
-            <LinearLayout
-                android:id="@+id/lineargrid"
-                android:layout_width="1050dp"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal">
-
-                <GridView
-                    android:id="@+id/gridcat"
-                    android:layout_width="fill_parent"
-                    android:layout_height="fill_parent"
-                    android:layout_margin="4dp"
-                    android:columnWidth="150dp"
-                    android:gravity="center"
-                    android:horizontalSpacing="1dp"
-                    android:numColumns="500"
-                    android:scrollbarAlwaysDrawHorizontalTrack="true"
-                    android:scrollbarAlwaysDrawVerticalTrack="true"
-                    android:scrollbars="horizontal"
-                    android:stretchMode="none"
-                    android:verticalSpacing="1dp" />
-            </LinearLayout>
-        </FrameLayout>
-    </HorizontalScrollView>
-
-    <TextView
-        android:id="@+id/categorylist"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/scrollproducts"
-        android:layout_alignParentRight="true"
+        android:layout_below="@+id/productlist"
+        android:layout_centerHorizontal="true"
         android:layout_marginTop="5dp"
-        android:layout_marginRight="16dp"
-        android:text="পুরো লিস্ট দেখুন"
-        android:textColor="#494747" />
-
+        android:layout_marginBottom="5dp"
+        android:text="আমাদের কারিগর দেখুন"
+        android:textColor="@color/black"/>
     <com.google.android.material.button.MaterialButton
         android:id="@+id/loginbtn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/categorylist"
+        android:layout_below="@+id/showartist"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="5dp"
         android:backgroundTint="@color/purple_500"
         android:text="লগআউট করুন" />
 </RelativeLayout>

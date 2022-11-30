@@ -67,6 +67,7 @@ public class ProfilePage extends AppCompatActivity {
                         // String itemsforworks=parent.getItemAtPosition(position).toString();
                         Intent intent=new Intent(ProfilePage.this,Works.class);//works.java
                         intent.putExtra("Uid",uiditemforworks.get(position));
+                        intent.putExtra("from","profilepage");
                         startActivity(intent);
                     }
                 });

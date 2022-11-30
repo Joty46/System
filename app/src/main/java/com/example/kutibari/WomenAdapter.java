@@ -9,21 +9,21 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 public class WomenAdapter extends BaseAdapter {
-    /**
-     * my code
-     * @param categories
-     * @param ctx
-     */
+//    /**
+//     * my code
+//     * @param categories
+//     * @param ctx
+//     */
 //    private String[] categories;
-    private Context context;
-    public WomenAdapter(Context ctx){
-//        this.categories = categories;
-        context = ctx;
-    }
+//    private Context context;
+//    public WomenAdapter(Context ctx){
+////        this.categories = categories;
+//        context = ctx;
+//    }
 
     @Override
     public int getCount() {
-        return MainActivity.womenImages.length;
+        return  0;//MainActivity.womenImages.length;
     }
 
     @Override
@@ -38,14 +38,19 @@ public class WomenAdapter extends BaseAdapter {
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
-        /**
-         * my code
-         */
-        convertView = LayoutInflater.from(context).inflate(R.layout.activity_woman_list, null);
-        ImageView imageView = convertView.findViewById(R.id.imageView);
-        imageView.setImageResource(MainActivity.womenImages[position]);
-        TextView title = convertView.findViewById(R.id.name);
-        title.setText(MainActivity.womenName[position]);
-        return convertView;
+        return null;
     }
+
+//    @Override
+//    public View getView(int position, View convertView, ViewGroup parent) {
+//        /**
+//         * my code
+//         */
+//        convertView = LayoutInflater.from(context).inflate(R.layout.activity_woman_list, null);
+//        ImageView imageView = convertView.findViewById(R.id.imageView);
+//        imageView.setImageResource(MainActivity.womenImages[position]);
+//        TextView title = convertView.findViewById(R.id.name);
+//        title.setText(MainActivity.womenName[position]);
+//        return convertView;
+//    }
 }
