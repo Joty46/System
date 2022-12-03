@@ -20,6 +20,15 @@
         android:theme="@style/Theme.KutiBari"
         tools:targetApi="31">
         <activity
+            android:name=".ProductDetails"
+            android:exported="false" />
+        <activity
+            android:name=".UsersProductList"
+            android:exported="false" />
+        <activity
+            android:name=".ArtistShow"
+            android:exported="false" />
+        <activity
             android:name=".OtpSend"
             android:exported="false" />
         <activity

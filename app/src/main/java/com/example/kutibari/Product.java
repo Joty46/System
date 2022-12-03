@@ -4,18 +4,27 @@ import android.media.Image;
 import android.widget.ImageView;
 
 public class Product {
-    private String id,title,price,days;
+    private String id,title,price,days,uid;
     private String image;
     public Product(){
 
     }
 
-    public Product(String id, String image, String title, String price, String days) {
+    public Product(String id, String image, String title, String price, String days,String uid) {
         this.id = id;
         this.image = image;
         this.title = title;
         this.price = price;
         this.days = days;
+        this.uid=uid;
+    }
+
+    public String getUid() {
+        return uid;
+    }
+
+    public void setUid(String uid) {
+        this.uid = uid;
     }
 
     public String getId() {

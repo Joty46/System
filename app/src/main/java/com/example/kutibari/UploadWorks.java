@@ -107,9 +107,10 @@ public class UploadWorks extends AppCompatActivity {
                 reference.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
                     @Override
                     public void onSuccess(Uri uri) {
-                        Product product=new Product(id,uri.toString(),title,price,days);
-                        Log.e(TAG, "onSuccess: "+ mAuth.getCurrentUser().getEmail() );
                         uid=mAuth.getCurrentUser().getUid();
+                        Product product=new Product(id,uri.toString(),title,price,days,uid);
+                        Log.e(TAG, "onSuccess: "+ mAuth.getCurrentUser().getEmail() );
+
 
                         database2.getReference().child("users").child(uid).addValueEventListener(new ValueEventListener() {
                             @Override

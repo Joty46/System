@@ -45,6 +45,7 @@ public class MainActivity extends AppCompatActivity {
     CategoryAdapter categoryAdapter;
     DatabaseReference databaseReference;
     TextView profiletxt;
+    TextView seeartist;
 
     /**
      * grid view and arrays
@@ -60,6 +61,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         profiletxt=findViewById(R.id.yourprofile);
+        seeartist=findViewById(R.id.showartist);
 
         /**
          * gridview for product category
@@ -155,7 +157,13 @@ public class MainActivity extends AppCompatActivity {
                 finish();
             }
         });
-
+        seeartist.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent=new Intent(MainActivity.this,ArtistShow.class);
+                startActivity(intent);
+            }
+        });
         /**
          * sign up text to go create account page
          */

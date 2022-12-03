@@ -69,9 +69,8 @@ public class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.ViewHo
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent=new Intent(holder.parent.getContext(), Works.class);
+                Intent intent=new Intent(holder.parent.getContext(), ProductDetails.class);
                 intent.putExtra("Uid",productlist.get(index).getPid());
-                intent.putExtra("from","catagoryadapter");
                 intent.putExtra("Uuid",productlist.get(index).getUid());
                 context.startActivity(intent);
                 Toast.makeText(context,"selected", Toast.LENGTH_SHORT).show();
