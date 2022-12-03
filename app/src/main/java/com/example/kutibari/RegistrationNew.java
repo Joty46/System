@@ -39,6 +39,12 @@ public class RegistrationNew extends AppCompatActivity {
         /**
          * code
          */
+        TextView receiver_msg = findViewById(R.id.nidnumber);
+        Intent intent = getIntent();
+        String str = intent.getStringExtra("nid");
+        // display the string into textView
+        receiver_msg.setText(str);
+
         final EditText mobile = findViewById(R.id.mobile);
         final EditText mailid = findViewById(R.id.email);
         final EditText username = findViewById(R.id.username);

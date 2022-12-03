@@ -49,7 +49,7 @@ public class OtpVerify extends AppCompatActivity {
         editTextInput();
 
         binding.tvMobile.setText(String.format(
-                "+91-%s", getIntent().getStringExtra("phone")
+                "+880-%s", getIntent().getStringExtra("phone")
         ));
 
         verificationId = getIntent().getStringExtra("verificationId");
@@ -93,7 +93,7 @@ public class OtpVerify extends AppCompatActivity {
                                             binding.progressBarVerify.setVisibility(View.VISIBLE);
                                             binding.btnVerify.setVisibility(View.INVISIBLE);
                                             Toast.makeText(OtpVerify.this, "Welcome...", Toast.LENGTH_SHORT).show();
-                                            Intent intent = new Intent(OtpVerify.this, MainActivity.class);
+                                            Intent intent = new Intent(OtpVerify.this, NewPassword.class);
                                             intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
                                             startActivity(intent);
                                         } else {

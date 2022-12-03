@@ -4,70 +4,95 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/images1"
     tools:context=".ProfilePage">
 
+<!--    <ImageView-->
+<!--        android:id="@+id/image"-->
+<!--        android:layout_width="100dp"-->
+<!--        android:layout_height="100dp"-->
+<!--        android:scaleType="centerCrop"-->
+<!--        android:src="@drawable/undraw_profile_pic_re_78k0"-->
+<!--        />-->
 
-    <TextView
-        android:id="@+id/profile"
+<!--    <TextView-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_alignParentRight="@+id/image"-->
+<!--        android:text="Hello"/>-->
+
+    <LinearLayout
+        android:id="@+id/linear"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="আপনার প্রোফাইল"
-        android:textColor="#E8FFFFFF"
-        android:textSize="35dp"
-        android:textStyle="bold"
-        android:layout_margin="40dp"
-        android:gravity="center"
-        />
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/orders"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="100dp"
-        android:layout_marginLeft="24dp"
-        android:layout_marginRight="24dp"
-        android:hint="আপনার প্রোফাইল"
-        android:background="#30ffffff"
-        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
-        >
-        <AutoCompleteTextView
-            android:id="@+id/auto_complete_text_orders"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:inputType="none"/>
-    </com.google.android.material.textfield.TextInputLayout>
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/uploadedworks"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/orders"
-        android:layout_marginTop="24dp"
-        android:layout_marginLeft="24dp"
-        android:layout_marginRight="24dp"
-        android:hint="কাজ গুলো দেখুন"
-        android:background="#30ffffff"
-        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
-        >
-        <AutoCompleteTextView
-            android:id="@+id/auto_complete_text_uploadedworks"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:inputType="none"/>
-    </com.google.android.material.textfield.TextInputLayout>
+        android:layout_marginBottom="10dp"
+        android:orientation="horizontal"
+        android:background="#555FD2">
+
+        <ImageView
+            android:id="@+id/image"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:scaleType="centerCrop"
+            android:src="@drawable/woman2"/>
+
+        <TextView
+                    android:id="@+id/text5"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:text="Hello User"
+                    android:textSize="20sp"
+                    android:layout_margin="10dp"
+                    android:textColor="@color/white"
+            />
+    </LinearLayout>
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/orders"
+                android:layout_below="@+id/linear"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="24dp"
+                android:layout_marginRight="24dp"
+                android:hint="আপনার প্রোফাইল"
+                android:background="#30ffffff"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+                >
+                <AutoCompleteTextView
+                    android:id="@+id/auto_complete_text_orders"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="none"/>
+            </com.google.android.material.textfield.TextInputLayout>
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/uploadedworks"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/orders"
+                android:layout_marginTop="24dp"
+                android:layout_marginLeft="24dp"
+                android:layout_marginRight="24dp"
+                android:hint="কাজ গুলো দেখুন"
+                android:background="#30ffffff"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+                >
+                <AutoCompleteTextView
+                    android:id="@+id/auto_complete_text_uploadedworks"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="none"/>
+            </com.google.android.material.textfield.TextInputLayout>
+
     <com.google.android.material.button.MaterialButton
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
         android:id="@+id/upload"
-        android:text="নতুন কাজ আপলোড করুন"
-        android:textSize="16dp"
-        android:backgroundTint="@color/purple_500"
-        android:layout_below="@+id/uploadedworks"
-        android:layout_marginTop="200dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:padding="20dp"
-        />
+        android:layout_margin="20dp"
+        android:background="@drawable/btn_background"
+        android:text="নতুন কাজ আপলোড করুন"/>
 
 
 
 
-</RelativeLayout>
+        </RelativeLayout>

@@ -96,6 +96,8 @@ public class OtpSend extends AppCompatActivity {
                 intent.putExtra("phone", binding.etPhone.getText().toString().trim());
                 intent.putExtra("verificationId", verificationId);
                 startActivity(intent);
+                Intent intent1 = new Intent(OtpSend.this, NewPassword.class);
+                intent1.putExtra("phone1", binding.etPhone.getText().toString().trim());
             }
         };
 

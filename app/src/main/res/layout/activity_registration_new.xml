@@ -4,42 +4,70 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".RegistrationNew"
-    android:background="@drawable/images2">
+    tools:context=".RegistrationNew">
 
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical">
 
+        <ImageView
+            android:id="@+id/image"
+            android:layout_width="200dp"
+            android:layout_height="200dp"
+            android:layout_centerHorizontal="true"
+            android:src="@drawable/undraw_fingerprint_re_uf3f"/>
+
         <TextView
             android:id="@+id/createdialog"
+            android:layout_below="@+id/image"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
-            android:layout_marginTop="24dp"
             android:text="অ্যাকাউন্ট খুলুন"
-            android:textColor="@color/white"
+            android:textColor="#B3000000"
             android:textSize="35dp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/niddialogue"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/createdialog"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="16dp"
+            android:text="আপনার জাতীয় পরিচয়পত্রের নাম্বার"
+            android:textColor="#B3000000"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/nidnumber"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_below="@+id/niddialogue"
+            android:layout_marginTop="2dp"
+            android:text="1234567890"
+            android:textColor="#B3000000"
             android:textStyle="bold" />
 
         <EditText
             android:id="@+id/mobile"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@id/createdialog"
+            android:layout_below="@id/nidnumber"
             android:layout_marginStart="24dp"
-            android:layout_marginTop="50dp"
+            android:layout_marginTop="10dp"
             android:layout_marginEnd="24dp"
             android:layout_marginBottom="24dp"
-            android:background="#30ffffff"
+            android:background="#14000000"
             android:drawableLeft="@drawable/ic_baseline_local_phone_24"
             android:drawablePadding="5dp"
             android:hint="মোবাইল নাম্বার"
             android:inputType="phone"
             android:padding="20dp"
-            android:textColor="@color/white"
-            android:textColorHint="@color/white" />
+            android:textColor="#80000000"
+            android:textColorHint="#80000000" />
 
         <EditText
             android:id="@+id/email"
@@ -50,14 +78,14 @@
             android:layout_marginTop="10dp"
             android:layout_marginEnd="24dp"
             android:layout_marginBottom="24dp"
-            android:background="#30ffffff"
+            android:background="#14000000"
             android:drawableLeft="@drawable/ic_baseline_email_24"
             android:drawablePadding="5dp"
             android:hint="ই-মেইল অ্যাকাউন্ট"
             android:inputType="text"
             android:padding="20dp"
-            android:textColor="@color/white"
-            android:textColorHint="@color/white" />
+            android:textColor="#80000000"
+            android:textColorHint="#80000000" />
 
         <EditText
             android:id="@+id/username"
@@ -68,14 +96,14 @@
             android:layout_marginTop="10dp"
             android:layout_marginEnd="24dp"
             android:layout_marginBottom="24dp"
-            android:background="#30ffffff"
+            android:background="#14000000"
             android:drawableLeft="@drawable/ic_baseline_person_24"
             android:drawablePadding="5dp"
             android:hint="ব্যবহারকারীর নাম"
             android:inputType="text"
             android:padding="20dp"
-            android:textColor="@color/white"
-            android:textColorHint="@color/white" />
+            android:textColor="#80000000"
+            android:textColorHint="#80000000" />
 
         <EditText
             android:id="@+id/userrole"
@@ -86,14 +114,14 @@
             android:layout_marginTop="10dp"
             android:layout_marginEnd="24dp"
             android:layout_marginBottom="24dp"
-            android:background="#30ffffff"
+            android:background="#14000000"
             android:drawableLeft="@drawable/ic_baseline_work_24"
             android:drawablePadding="5dp"
             android:hint="ব্যবহারকারীর ভুমিকা"
             android:inputType="text"
             android:padding="20dp"
-            android:textColor="@color/white"
-            android:textColorHint="@color/white" />
+            android:textColor="#80000000"
+            android:textColorHint="#80000000" />
 
         <EditText
             android:id="@+id/password"
@@ -104,14 +132,14 @@
             android:layout_marginTop="10dp"
             android:layout_marginEnd="24dp"
             android:layout_marginBottom="24dp"
-            android:background="#30ffffff"
+            android:background="#14000000"
             android:drawableLeft="@drawable/ic_baseline_vpn_key_24"
             android:drawablePadding="5dp"
             android:hint="গোপন পিন নাম্বার দিন"
             android:inputType="textPassword"
             android:padding="20dp"
-            android:textColor="@color/white"
-            android:textColorHint="@color/white" />
+            android:textColor="#80000000"
+            android:textColorHint="#80000000" />
 
 
         <EditText
@@ -123,26 +151,23 @@
             android:layout_marginTop="10dp"
             android:layout_marginEnd="24dp"
             android:layout_marginBottom="24dp"
-            android:background="#30ffffff"
+            android:background="#14000000"
             android:drawableLeft="@drawable/ic_baseline_vpn_key_24"
             android:drawablePadding="5dp"
             android:hint="গোপন পিন নাম্বারটি পুনরায় লিখুন"
             android:inputType="textPassword"
             android:padding="20dp"
-            android:textColor="@color/white"
-            android:textColorHint="@color/white" />
+            android:textColor="#80000000"
+            android:textColorHint="#80000000" />
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/signup"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@+id/conpass"
             android:layout_centerHorizontal="true"
-            android:layout_marginStart="40dp"
-            android:layout_marginTop="30dp"
-            android:layout_marginEnd="40dp"
-            android:layout_marginBottom="20dp"
-            android:backgroundTint="@color/purple_700"
+            android:layout_margin="20dp"
+            android:background="@drawable/btn_background"
             android:text="রেজিস্টার" />
 
     <LinearLayout
@@ -158,7 +183,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="আপনার কি ইতিমধ্যে অ্যাকাউন্ট আছে?"
-            android:textColor="@color/white"/>
+            android:textColor="#B3000000"/>
         <TextView
             android:id="@+id/loginnow"
             android:layout_width="wrap_content"
@@ -166,7 +191,7 @@
             android:layout_marginStart="5dp"
             android:text="লগইন করুন"
             android:textStyle="bold"
-            android:textColor="@color/white"/>
+            android:textColor="#B3000000"/>
     </LinearLayout>
     </RelativeLayout>
 

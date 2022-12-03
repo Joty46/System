@@ -118,7 +118,9 @@ public class RegisterScan extends AppCompatActivity {
 //                    a="hello";
 //                }
                 textView.setText(text);
-                startActivity(new Intent(RegisterScan.this, RegistrationNew.class));
+                Intent intent = new Intent(RegisterScan.this, RegistrationNew.class);
+                intent.putExtra("nid",text);
+                startActivity(intent);
 
             }
         }

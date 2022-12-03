@@ -1,16 +1,22 @@
 package com.example.kutibari;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.appcompat.app.AppCompatActivity;
+
 import com.google.android.material.button.MaterialButton;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.FirebaseDatabase;
 
 public class NewPassword extends AppCompatActivity {
+
+
+    FirebaseDatabase reference;
+    FirebaseAuth mAuth;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -20,8 +26,10 @@ public class NewPassword extends AppCompatActivity {
         /**
          * code for new password
          */
-        TextView password = (TextView) findViewById(R.id.password);
+        final TextView password = (TextView) findViewById(R.id.password);
         MaterialButton submit = (MaterialButton) findViewById(R.id.submit_new_pass);
+        reference=FirebaseDatabase.getInstance();
+        mAuth=FirebaseAuth.getInstance();
         submit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -29,9 +37,7 @@ public class NewPassword extends AppCompatActivity {
                     /**
                      * not empty
                      */
-                    Toast.makeText(NewPassword.this, "We've successfully updated your password", Toast.LENGTH_SHORT).show();
-                    openLogin();
-                    password.setText("");
+
                 }
                 else{
                     /**
