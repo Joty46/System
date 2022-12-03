@@ -4,12 +4,11 @@ import static androidx.constraintlayout.helper.widget.MotionEffect.TAG;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.collection.CircularArray;
 
 import android.content.Intent;
-import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -22,24 +21,28 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.squareup.picasso.Picasso;
 
-public class Works extends AppCompatActivity {
-    ImageView wimage;
-    TextView wtitle,wprice,wdays;
-    DatabaseReference reference;
+public class ProductDetails extends AppCompatActivity {
+    ImageView pdimage;
+    TextView pdtitle,pdprice,pddays;
+    DatabaseReference reference,reference2;
     String uuid;
-
+    TextView pdetailtxt;
+    TextView wantorder;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_works);
-        wimage=findViewById(R.id.imageforworks);
-        wtitle=findViewById(R.id.name);
-        wprice=findViewById(R.id.price);
-        wdays=findViewById(R.id.days);
+        setContentView(R.layout.activity_product_details);
+        pdimage=findViewById(R.id.imageforpdetail);
+        pdtitle=findViewById(R.id.namepdetail);
+        pdprice=findViewById(R.id.pricepdetail);
+        pddays=findViewById(R.id.dayspdetail);
+        pdetailtxt=findViewById(R.id.pdetailstxt);
+        wantorder=findViewById(R.id.wantorder);
         Intent intent=getIntent();
         String uid=intent.getStringExtra("Uid");
-        FirebaseUser user=FirebaseAuth.getInstance().getCurrentUser();
-        uuid=user.getUid();
+
+        uuid=intent.getStringExtra("Uuid");
+        pdetailtxt.setText(uid);
         reference= FirebaseDatabase.getInstance().getReference(uuid).child("product");
         reference.addValueEventListener(new ValueEventListener() {
             @Override
@@ -50,10 +53,10 @@ public class Works extends AppCompatActivity {
                     if (newid.equals(uid)){
                         product=postSnapshot.getValue(Product.class);
                         String link=product.getImage();
-                        Picasso.get().load(link).into(wimage);
-                        wtitle.setText(product.getTitle());
-                        wprice.setText(product.getPrice());
-                        wdays.setText(product.getDays());
+                        Picasso.get().load(link).into(pdimage);
+                        pdtitle.setText(product.getTitle());
+                        pdprice.setText(product.getPrice());
+                        pddays.setText(product.getDays());
                     }
                 }
 
@@ -62,6 +65,13 @@ public class Works extends AppCompatActivity {
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
 
+            }
+        });
+        wantorder.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent1=new Intent(ProductDetails.this,OrderDetails.class);
+                startActivity(intent1);
             }
         });
 

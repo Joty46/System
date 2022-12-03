@@ -88,7 +88,7 @@ public class RegistrationNew extends AppCompatActivity {
                             {
                                 String uuid=task.getResult().getUser().getUid();
                                 Log.e(TAG, "onComplete: "+uuid);
-                                User user=new User(phone,mail,user_name,pass[0],role);
+                                User user=new User(phone,mail,user_name,pass[0],role,uuid);
                                 try {
                                     reference.getReference().child("users").child(uuid).setValue(user).addOnSuccessListener(new OnSuccessListener<Void>() {
                                         @Override

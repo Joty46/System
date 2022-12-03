@@ -88,7 +88,7 @@ public class CustomerProfilePage extends AppCompatActivity {
                 }
                 else
                 {
-                    customeruname.setText("Hi "+user.getUsername().toString()+" !");
+                    customeruname.setText("স্বাগতম "+user.getUsername().toString()+" !");
                 }
             }
 
