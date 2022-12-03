@@ -31,9 +31,9 @@ public class CustomerProfilePage extends AppCompatActivity {
     /**
      * grid view and arrays for category of products
      */
-    private GridView gridcat;
-    public static int categoryImages[] = {R.drawable.craft1, R.drawable.craft2, R.drawable.craft3, R.drawable.craft4, R.drawable.craft5, R.drawable.craft6, R.drawable.craft7};
-    public static String[] productName = {"cat1", "cat2", "cat3", "cat4", "cat5", "cat6", "cat7"};
+//    private GridView gridcat;
+//    public static int categoryImages[] = {R.drawable.craft1, R.drawable.craft2, R.drawable.craft3, R.drawable.craft4, R.drawable.craft5, R.drawable.craft6, R.drawable.craft7};
+//    public static String[] productName = {"cat1", "cat2", "cat3", "cat4", "cat5", "cat6", "cat7"};
     FirebaseAuth mAuth = FirebaseAuth.getInstance();
     FirebaseDatabase reference;
     private RecyclerView recyclerView;
@@ -41,6 +41,7 @@ public class CustomerProfilePage extends AppCompatActivity {
     CategoryAdapter categoryAdapter;
     DatabaseReference databaseReference;
     TextView customeruname;
+    TextView showartist;
 
     /**
      * grid view and arrays
@@ -56,6 +57,7 @@ public class CustomerProfilePage extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_customer_profile_page);
         customeruname=findViewById(R.id.cusername);
+        showartist=findViewById(R.id.showartist);
 
         /**
          * gridview for product category
@@ -133,6 +135,13 @@ public class CustomerProfilePage extends AppCompatActivity {
                 mAuth.signOut();
                 startActivity(new Intent(CustomerProfilePage.this, LoginPage.class));
                 finish();
+            }
+        });
+        showartist.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent=new Intent(CustomerProfilePage.this,ArtistShow.class);
+                startActivity(intent);
             }
         });
 
