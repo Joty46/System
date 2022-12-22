@@ -43,6 +43,7 @@ public class ArtistShow extends AppCompatActivity {
                     if(urole.equals("Seller")){
                         userArrayList.add(u);
 
+
                     }
                     Log.e(TAG, "onDataChange: "+userArrayList.size());
                     womenAdapter.notifyItemInserted(userArrayList.size()-1);

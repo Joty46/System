@@ -85,7 +85,10 @@ public class WomenAdapter extends RecyclerView.Adapter<WomenAdapter.ViewHolder> 
     @Override
     public void onBindViewHolder(@androidx.annotation.NonNull WomenAdapter.ViewHolder holder, int position) {
         holder.artistname.setText(userlist.get(position).getUsername());
-        holder.artistemail.setText(userlist.get(position).getMail());
+        String s=userlist.get(position).getMail();
+        String[] parts=s.split("@");
+        String part1=parts[0];
+        holder.artistphone.setText(part1);
         final Integer index = holder.getAdapterPosition();
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -116,13 +119,13 @@ public class WomenAdapter extends RecyclerView.Adapter<WomenAdapter.ViewHolder> 
             return null;
         }
         public class ViewHolder extends RecyclerView.ViewHolder {
-            private TextView artistname,artistemail;
+            private TextView artistname,artistphone;
             private ConstraintLayout parent;
 
             public ViewHolder(@NonNull View itemView) {
                 super(itemView);
                 artistname=itemView.findViewById(R.id.artistname);
-                artistemail=itemView.findViewById(R.id.artistemail);
+                artistphone=itemView.findViewById(R.id.artistphone);
                 parent=itemView.findViewById(R.id.parent);
 
             }
