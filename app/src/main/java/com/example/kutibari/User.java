@@ -1,10 +1,10 @@
 package com.example.kutibari;
 
 public class User {
-    String phone,mail,username,password,role,uid;
+    String mail,username,password,role,uid;
 
-    public User(String phone, String mail, String username, String password, String role, String uid) {
-        this.phone = phone;
+    public User(String mail, String username, String password, String role, String uid) {
+//        this.phone = phone;
         this.mail = mail;
         this.username = username;
         this.password = password;
@@ -24,9 +24,9 @@ public class User {
         this.uid = uid;
     }
 
-    public String getPhone() {
-        return phone;
-    }
+//    public String getPhone() {
+//        return phone;
+//    }
 
     public String getMail() { return mail; }
 
@@ -42,9 +42,9 @@ public class User {
         return role;
     }
 
-    public void setPhone(String phone) {
-        this.phone = phone;
-    }
+//    public void setPhone(String phone) {
+//        this.phone = phone;
+//    }
 
     public void setMail(String mail) { this.mail = mail; }
 

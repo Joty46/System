@@ -27,7 +27,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="32dp"
-            android:text="OTP Verification"
+            android:text="ওটিপি ভেরিফিকেশন"
             android:textColor="@color/black"
             android:textSize="24sp"
             android:textStyle="bold"
@@ -41,7 +41,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
-            android:text="We will send otp to your entered mobile number."
+            android:text="আপনার দেওয়া মোবাইল নাম্বারে ওটিপি পাঠানো হবে"
             app:layout_constraintEnd_toEndOf="@+id/textView"
             app:layout_constraintStart_toStartOf="@+id/textView"
             app:layout_constraintTop_toBottomOf="@+id/textView" />
@@ -80,11 +80,11 @@
 
         <Button
             android:id="@+id/btnSend"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="45dp"
-            android:layout_marginBottom="45dp"
-            android:text="SEND"
+            android:layout_margin="45dp"
+            android:text="নিশ্চিত করুন"
+            android:background="@drawable/btn_background"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"

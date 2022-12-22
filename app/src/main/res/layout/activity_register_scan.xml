@@ -23,7 +23,7 @@
         android:layout_below="@+id/heading"/>
 
     <TextView
-        android:id="@+id/text_display"
+        android:id="@+id/text_display1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/image_view"
@@ -31,9 +31,35 @@
         android:layout_marginTop="10dp"
         android:layout_marginEnd="10dp"
         android:layout_marginBottom="10dp"
-        android:maxLines="10"
+        android:maxLines="2"
         android:text=""
         android:textSize="10dp" />
+
+    <TextView
+        android:id="@+id/text_display2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/text_display1"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginBottom="10dp"
+        android:maxLines="2"
+        android:text=""
+        android:textSize="10dp" />
+
+    <TextView
+        android:id="@+id/text_display3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/text_display2"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginBottom="10dp"
+        android:maxLines="2"
+        android:text=""
+        android:textSize="16dp" />
 
     <Button
         android:id="@+id/capture_image"

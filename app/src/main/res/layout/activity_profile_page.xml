@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ProfilePage">
+    tools:context=".ProfilePage"
+    android:background="@drawable/profile_page1">
 
 <!--    <ImageView-->
 <!--        android:id="@+id/image"-->
@@ -20,41 +21,14 @@
 <!--        android:layout_alignParentRight="@+id/image"-->
 <!--        android:text="Hello"/>-->
 
-    <LinearLayout
-        android:id="@+id/linear"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="10dp"
-        android:orientation="horizontal"
-        android:background="#555FD2">
-
-        <ImageView
-            android:id="@+id/image"
-            android:layout_width="100dp"
-            android:layout_height="100dp"
-            android:scaleType="centerCrop"
-            android:src="@drawable/woman2"/>
-
-        <TextView
-                    android:id="@+id/text5"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center_vertical"
-                    android:text="Hello User"
-                    android:textSize="20sp"
-                    android:layout_margin="10dp"
-                    android:textColor="@color/white"
-            />
-    </LinearLayout>
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/orders"
-                android:layout_below="@+id/linear"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="350dp"
                 android:layout_marginLeft="24dp"
                 android:layout_marginRight="24dp"
                 android:hint="আপনার প্রোফাইল"
-                android:background="#30ffffff"
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
                 >
                 <AutoCompleteTextView
@@ -72,7 +46,6 @@
                 android:layout_marginLeft="24dp"
                 android:layout_marginRight="24dp"
                 android:hint="কাজ গুলো দেখুন"
-                android:background="#30ffffff"
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
                 >
                 <AutoCompleteTextView
@@ -88,9 +61,12 @@
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:layout_margin="20dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginBottom="20dp"
         android:background="@drawable/btn_background"
-        android:text="নতুন কাজ আপলোড করুন"/>
+        android:text="নতুন কাজ আপলোড করুন" />
 
 
 

@@ -1,59 +1,82 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".MainActivity">
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/cusername"
-        android:layout_marginLeft="50dp"
-        android:layout_marginTop="50dp"
-        android:textSize="50dp"
-        android:text="HI"
-        android:textStyle="bold"/>
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/artisandialog"
-        android:layout_below="@id/cusername"
-        android:layout_marginTop="10dp"
-        android:layout_marginLeft="10dp"
-        android:text="আমাদের কারিগর"
-        android:textSize="25dp"
-        android:textColor="#454242"/>
-
-
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/productlist"
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_below="@id/artisandialog"
-        android:layout_height="500dp"
-        android:layout_marginTop="5dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/welcome"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="10dp"
+            android:text="স্বাগতম"
+            android:textColor="@color/text"
+            android:textSize="32dp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/cusername"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/welcome"
+            android:layout_centerHorizontal="true"
+            android:text="HI"
+            android:textColor="@color/text"
+            android:textSize="24dp"
+            android:textStyle="bold" />
+
     <TextView
-        android:id="@+id/showartist"
+        android:id="@+id/artisandialog"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/productlist"
+        android:layout_below="@id/cusername"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="5dp"
-        android:layout_marginBottom="5dp"
-        android:text="আমাদের কারিগর দেখুন"
-        android:textColor="@color/black"/>
-    <com.google.android.material.button.MaterialButton
-        android:id="@+id/loginbtn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/showartist"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="16dp"
-        android:backgroundTint="@color/purple_500"
-        android:text="লগআউট করুন" />
+        android:layout_marginTop="24dp"
+        android:text="আমাদের পণ্য সমূহ"
+        android:textColor="@color/text"
+        android:textSize="20dp" />
+
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/productlist"
+            android:layout_width="match_parent"
+            android:layout_height="600dp"
+            android:layout_below="@id/artisandialog"
+            android:layout_marginTop="5dp"
+            android:background="@drawable/product_border_background"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/showartist"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/productlist"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="24dp"
+            android:text="আমাদের কারিগর দেখুন"
+            android:textSize="16dp"
+            android:textColor="@color/text"
+            />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/loginbtn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/showartist"
+            android:layout_centerHorizontal="true"
+            android:layout_margin="16dp"
+            android:background="@drawable/btn_background"
+            android:text="লগআউট করুন" />
 </RelativeLayout>
+</ScrollView>

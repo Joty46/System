@@ -6,19 +6,19 @@
     android:layout_height="match_parent"
     tools:context=".LoginPage">
 
-<!--    <TextView-->
-<!--        android:id="@+id/signin"-->
-<!--        android:layout_width="match_parent"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:layout_marginStart="50dp"-->
-<!--        android:layout_marginTop="50dp"-->
-<!--        android:layout_marginEnd="50dp"-->
-<!--        android:layout_marginBottom="50dp"-->
-<!--        android:gravity="center"-->
-<!--        android:text="লগইন করুন"-->
-<!--        android:textColor="#80000000"-->
-<!--        android:textSize="35dp"-->
-<!--        android:textStyle="bold" />-->
+    <!--    <TextView-->
+    <!--        android:id="@+id/signin"-->
+    <!--        android:layout_width="match_parent"-->
+    <!--        android:layout_height="wrap_content"-->
+    <!--        android:layout_marginStart="50dp"-->
+    <!--        android:layout_marginTop="50dp"-->
+    <!--        android:layout_marginEnd="50dp"-->
+    <!--        android:layout_marginBottom="50dp"-->
+    <!--        android:gravity="center"-->
+    <!--        android:text="লগইন করুন"-->
+    <!--        android:textColor="#80000000"-->
+    <!--        android:textSize="35dp"-->
+    <!--        android:textStyle="bold" />-->
 
     <ImageView
         android:id="@+id/image"
@@ -33,15 +33,17 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/image"
-        android:layout_margin="16dp"
-        android:background="#14000000"
-        android:backgroundTint="#80000000"
-        android:drawableLeft="@drawable/ic_baseline_email_24"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="16dp"
+        android:background="@drawable/border"
+        android:drawableLeft="@drawable/ic_baseline_local_phone_24"
         android:drawablePadding="5dp"
-        android:hint="ই-মেইল অ্যাকাউন্ট"
-        android:inputType="text"
+        android:hint="মোবাইল নাম্বার"
+        android:inputType="phone"
         android:padding="20dp"
-        android:textColor="#80000000"
+        android:textColor="#B3000000"
         android:textColorHint="#80000000" />
 
     <EditText
@@ -49,15 +51,16 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/email"
-        android:layout_margin="16dp"
-        android:background="#14000000"
-        android:backgroundTint="#80000000"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:background="@drawable/border"
         android:drawableLeft="@drawable/ic_baseline_vpn_key_24"
         android:drawablePadding="15dp"
         android:hint="গোপন পিন নাম্বার দিন"
         android:inputType="textPassword"
         android:padding="20dp"
-        android:textColor="#80000000"
+        android:textColor="#B3000000"
         android:textColorHint="#80000000" />
 
 
@@ -66,10 +69,13 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/password"
-        android:layout_margin="10dp"
         android:layout_alignParentRight="true"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginBottom="10dp"
         android:text="গোপন পিন নাম্বারটি ভুলে গেছেন?"
-        android:textColor="#B3000000"/>
+        android:textColor="#B3000000" />
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/loginbtn"
@@ -77,7 +83,10 @@
         android:layout_height="wrap_content"
         android:layout_above="@+id/lastdialog"
         android:layout_centerHorizontal="true"
-        android:layout_margin="30dp"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginEnd="30dp"
+        android:layout_marginBottom="30dp"
         android:background="@drawable/btn_background"
         android:text="লগইন" />
 

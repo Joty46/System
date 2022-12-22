@@ -30,7 +30,7 @@ public class RegistrationNew extends AppCompatActivity {
     FirebaseAuth mAuth;
     FirebaseUser mUser;
     FirebaseDatabase reference;
-    String role;
+    String role,role1;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -46,7 +46,7 @@ public class RegistrationNew extends AppCompatActivity {
         receiver_msg.setText(str);
 
         final EditText mobile = findViewById(R.id.mobile);
-        final EditText mailid = findViewById(R.id.email);
+//        final EditText mailid = findViewById(R.id.email);
         final EditText username = findViewById(R.id.username);
         final EditText password = findViewById(R.id.password);
         final EditText conpass = findViewById(R.id.conpass);
@@ -68,13 +68,13 @@ public class RegistrationNew extends AppCompatActivity {
                 /**
                  * get data into string form from edit text
                  */
-                 String phone = mobile.getText().toString();
-                 String authemail = mobile.getText().toString();
-                 String mail = mailid.getText().toString();
-                 String user_name = username.getText().toString();
-                 String[] pass = {password.getText().toString()};
-                 String confirm = conpass.getText().toString();
-                 role=userrole.getText().toString();
+//                String phone = mobile.getText().toString()+"@gmail.com";
+                String mail = mobile.getText().toString()+"@gmail.com";
+                String user_name = username.getText().toString();
+                String[] pass = {password.getText().toString()};
+                String confirm = conpass.getText().toString();
+                role1=userrole.getText().toString();
+                role=role1.substring(0, 1).toUpperCase()+role1.substring(1).toLowerCase();
 
                 /**
                  * checking if all fields are fulfilled correctly
@@ -94,7 +94,7 @@ public class RegistrationNew extends AppCompatActivity {
                             {
                                 String uuid=task.getResult().getUser().getUid();
                                 Log.e(TAG, "onComplete: "+uuid);
-                                User user=new User(phone,mail,user_name,pass[0],role,uuid);
+                                User user=new User(mail,user_name,pass[0],role,uuid);
                                 try {
                                     reference.getReference().child("users").child(uuid).setValue(user).addOnSuccessListener(new OnSuccessListener<Void>() {
                                         @Override
@@ -107,7 +107,7 @@ public class RegistrationNew extends AppCompatActivity {
                                 catch (Exception e){
                                     Log.e(TAG, "onComplete:a"+e.getMessage() );
                                 }
-                                                }
+                            }
                             else
                             {
                                 Log.e(TAG, "onComplete:" + task.getException() );

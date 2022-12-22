@@ -1,62 +1,73 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/images4"
-    tools:context=".MainActivity">
+    tools:context=".MainActivity"
+    >
 
-    <TextView
-        android:id="@+id/uploadworktxt"
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="কাজ আপলোড করুন"
-        android:textColor="#E8FFFFFF"
-        android:textSize="35dp"
-        android:textStyle="bold"
-        android:layout_marginTop="30dp"
-        android:gravity="center"
-        />
-    <TextView
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+<!--        <ImageView-->
+<!--            android:id="@+id/img"-->
+<!--            android:layout_width="200dp"-->
+<!--            android:layout_height="200dp"-->
+<!--            android:layout_marginTop="30dp"-->
+<!--            android:scaleType="centerCrop"-->
+<!--            android:src="@drawable/undraw_upload_re_pasx" />-->
+        <ImageView
+            android:id="@+id/image"
+            android:layout_width="match_parent"
+            android:layout_height="700dp"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:alpha=".6"
+            android:src="@drawable/background_uploadwork2" />
+
+        <TextView
         android:id="@+id/imgtxt"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/uploadworktxt"
         android:paddingLeft="24dp"
         android:text="আপনার কাজের ছবি :"
-        android:textColor="#E8FFFFFF"
+        android:textColor="#B3000000"
         android:textSize="20dp"
         android:textStyle="italic"
-        android:layout_margin="5dp"
+        android:layout_marginStart="5dp"
+            android:layout_marginTop="24dp"
         />
 
-    <ImageView
-        android:id="@+id/imageforuploadworks"
-        android:layout_width="150dp"
-        android:layout_height="150dp"
-        android:layout_below="@id/imgtxt"
-        android:layout_marginLeft="120dp"
-        tools:srcCompat="@tools:sample/avatars"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        />
+        <ImageView
+            android:id="@+id/imageforuploadworks"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:layout_below="@id/imgtxt"
+            android:layout_marginLeft="120dp"
+            android:background="@drawable/border"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.497"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:srcCompat="@tools:sample/avatars" />
 
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/floatingActionButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/imgtxt"
-        android:layout_marginLeft="220dp"
-        android:layout_marginTop="98dp"
-        android:clickable="true"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.701"
-        app:layout_constraintStart_toStartOf="parent"
-        tools:srcCompat="@tools:sample/avatars" />
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/floatingActionButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/imgtxt"
+            android:layout_marginLeft="220dp"
+            android:layout_marginTop="98dp"
+            android:background="@drawable/btn_background"
+            android:clickable="true"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.701"
+            app:layout_constraintStart_toStartOf="parent"
+            tools:srcCompat="@tools:sample/avatars" />
     <TextView
         android:id="@+id/nameinuploadworks"
         android:layout_width="match_parent"
@@ -64,27 +75,27 @@
         android:layout_below="@id/imageforuploadworks"
         android:paddingLeft="24dp"
         android:text="শিরোনাম :"
-        android:textColor="#E8FFFFFF"
+        android:textColor="#B3000000"
         android:textSize="20dp"
         android:textStyle="italic"
         android:layout_margin="5dp"
         />
 
-    <EditText
-        android:id="@+id/editname"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/nameinuploadworks"
-        android:layout_marginTop="5dp"
-        android:layout_marginStart="24dp"
-        android:layout_marginEnd="24dp"
-        android:layout_marginBottom="10dp"
-        android:background="#30ffffff"
-        android:drawablePadding="20dp"
-        android:hint="নাম"
-        android:padding="20dp"
-        android:textColor="@color/white"
-        android:textColorHint="@color/white" />
+        <EditText
+            android:id="@+id/editname"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/nameinuploadworks"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginEnd="24dp"
+            android:layout_marginBottom="10dp"
+            android:background="@drawable/border"
+            android:drawablePadding="20dp"
+            android:hint="নাম"
+            android:padding="20dp"
+            android:textColor="#B3000000"
+            android:textColorHint="#80000000" />
 
     <TextView
         android:id="@+id/priceinuploadworks"
@@ -93,27 +104,27 @@
         android:layout_below="@id/editname"
         android:paddingLeft="24dp"
         android:text="দাম :"
-        android:textColor="#E8FFFFFF"
+        android:textColor="#B3000000"
         android:textSize="20dp"
         android:textStyle="italic"
         android:layout_margin="5dp"
         />
 
-    <EditText
-        android:id="@+id/editprice"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/priceinuploadworks"
-        android:layout_marginTop="5dp"
-        android:layout_marginStart="24dp"
-        android:layout_marginEnd="24dp"
-        android:layout_marginBottom="10dp"
-        android:background="#30ffffff"
-        android:drawablePadding="20dp"
-        android:hint="কত টাকা"
-        android:padding="20dp"
-        android:textColor="@color/white"
-        android:textColorHint="@color/white" />
+        <EditText
+            android:id="@+id/editprice"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/priceinuploadworks"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginEnd="24dp"
+            android:layout_marginBottom="10dp"
+            android:background="@drawable/border"
+            android:drawablePadding="20dp"
+            android:hint="কত টাকা"
+            android:padding="20dp"
+            android:textColor="#B3000000"
+            android:textColorHint="#80000000" />
     <TextView
         android:id="@+id/dayinuploadworks"
         android:layout_width="match_parent"
@@ -121,43 +132,41 @@
         android:layout_below="@id/editprice"
         android:paddingLeft="24dp"
         android:text="সময় :"
-        android:textColor="#E8FFFFFF"
+        android:textColor="#B3000000"
         android:textSize="20dp"
         android:textStyle="italic"
         android:layout_margin="5dp"
         />
 
-    <EditText
-        android:id="@+id/editdays"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/dayinuploadworks"
-        android:layout_marginTop="5dp"
-        android:layout_marginStart="24dp"
-        android:layout_marginEnd="24dp"
-        android:layout_marginBottom="10dp"
-        android:background="#30ffffff"
-        android:drawablePadding="20dp"
-        android:hint="কাজটি সম্পন্ন করতে করতে কত দিন লাগবে "
-        android:padding="20dp"
-        android:textColor="@color/white"
-        android:textColorHint="@color/white" />
+        <EditText
+            android:id="@+id/editdays"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/dayinuploadworks"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginEnd="24dp"
+            android:layout_marginBottom="10dp"
+            android:background="@drawable/border"
+            android:drawablePadding="20dp"
+            android:hint="কাজটি সম্পন্ন করতে করতে কত দিন লাগবে "
+            android:padding="20dp"
+            android:textColor="#B3000000"
+            android:textColorHint="#80000000"/>
 
-    <com.google.android.material.button.MaterialButton
-        android:id="@+id/submitworks"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/editdays"
-        android:layout_centerHorizontal="true"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginEnd="20dp"
-        android:layout_marginBottom="20dp"
-        android:backgroundTint="@color/teal_200"
-        android:text="নিশ্চিত করুন"
-        android:textSize="25dp" />
-
-
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/submitworks"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/editdays"
+            android:layout_centerHorizontal="true"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="20dp"
+            android:layout_marginBottom="20dp"
+            android:background="@drawable/btn_background"
+            android:text="কাজ আপলোড করুন" />
 
 
 </RelativeLayout>
+</ScrollView>

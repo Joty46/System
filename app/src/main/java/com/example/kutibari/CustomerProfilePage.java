@@ -1,20 +1,14 @@
 package com.example.kutibari;
 
-import static androidx.constraintlayout.helper.widget.MotionEffect.TAG;
+import android.content.Intent;
+import android.os.Bundle;
+import android.view.View;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-
-import android.content.Intent;
-import android.os.Bundle;
-import android.util.Log;
-import android.view.View;
-import android.widget.Button;
-import android.widget.GridView;
-import android.widget.ImageView;
-import android.widget.TextView;
 
 import com.google.android.material.button.MaterialButton;
 import com.google.firebase.auth.FirebaseAuth;
@@ -90,7 +84,7 @@ public class CustomerProfilePage extends AppCompatActivity {
                 }
                 else
                 {
-                    customeruname.setText("স্বাগতম "+user.getUsername().toString()+" !");
+                    customeruname.setText(""+user.getUsername().toString());
                 }
             }
 

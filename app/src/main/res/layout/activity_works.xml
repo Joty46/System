@@ -4,27 +4,27 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/register"
-    tools:context=".MainActivity">
+    tools:context=".MainActivity"
+    android:background="@drawable/woks_background">
 
-    <TextView
-        android:id="@+id/workstxt"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="30dp"
-        android:gravity="center"
-        android:text="কাজ"
-        android:textColor="#E8FFFFFF"
-        android:textSize="35dp"
-        android:textStyle="bold" />
+<!--    <TextView-->
+<!--        android:id="@+id/workstxt"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_marginTop="30dp"-->
+<!--        android:gravity="center"-->
+<!--        android:text="কাজ"-->
+<!--        android:textColor="@color/text"-->
+<!--        android:textSize="35dp"-->
+<!--        android:textStyle="bold" />-->
 
     <ImageView
         android:id="@+id/imageforworks"
         android:layout_width="150dp"
         android:layout_height="150dp"
-        android:layout_below="@id/workstxt"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="5dp" />
+        android:layout_marginTop="70dp"
+        android:background="@drawable/border"/>
     <TextView
         android:id="@+id/nameinworks"
         android:layout_width="match_parent"
@@ -32,7 +32,7 @@
         android:layout_below="@id/imageforworks"
         android:paddingLeft="24dp"
         android:text="শিরোনাম :"
-        android:textColor="#E8FFFFFF"
+        android:textColor="@color/text"
         android:textSize="20dp"
         android:textStyle="italic"
         android:layout_margin="5dp"
@@ -43,16 +43,16 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/nameinworks"
-        android:layout_marginTop="5dp"
         android:layout_marginStart="24dp"
+        android:layout_marginTop="5dp"
         android:layout_marginEnd="24dp"
         android:layout_marginBottom="10dp"
-        android:background="#30ffffff"
+        android:background="@drawable/border"
         android:drawablePadding="20dp"
         android:hint="নাম"
         android:padding="20dp"
-        android:textColor="@color/white"
-        android:textColorHint="@color/white" />
+        android:textColor="@color/text"
+        android:textColorHint="@color/texthint" />
 
     <TextView
         android:id="@+id/txtforprice"
@@ -62,7 +62,7 @@
         android:layout_margin="5dp"
         android:paddingLeft="24dp"
         android:text="দাম :"
-        android:textColor="#E8FFFFFF"
+        android:textColor="@color/text"
         android:textSize="20dp"
         android:textStyle="italic" />
 
@@ -75,12 +75,12 @@
         android:layout_marginTop="5dp"
         android:layout_marginEnd="24dp"
         android:layout_marginBottom="10dp"
-        android:background="#30ffffff"
+        android:background="@drawable/border"
         android:drawablePadding="20dp"
         android:hint="কত টাকাা"
         android:padding="20dp"
-        android:textColor="@color/white"
-        android:textColorHint="@color/white" />
+        android:textColor="@color/text"
+        android:textColorHint="@color/texthint" />
 
     <TextView
         android:id="@+id/dayneeded"
@@ -90,7 +90,7 @@
         android:layout_margin="5dp"
         android:paddingLeft="24dp"
         android:text="সময় :"
-        android:textColor="#E8FFFFFF"
+        android:textColor="@color/text"
         android:textSize="20dp"
         android:textStyle="italic" />
 
@@ -99,16 +99,16 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/dayneeded"
-        android:layout_marginTop="5dp"
         android:layout_marginStart="24dp"
+        android:layout_marginTop="5dp"
         android:layout_marginEnd="24dp"
         android:layout_marginBottom="10dp"
-        android:background="#30ffffff"
+        android:background="@drawable/border"
         android:drawablePadding="20dp"
         android:hint="কাজটি সম্পন্ন করতে করতে কত দিন লাগবে"
         android:padding="20dp"
-        android:textColor="@color/white"
-        android:textColorHint="@color/white" />
+        android:textColor="@color/text"
+        android:textColorHint="@color/texthint" />
 
     <TextView
         android:id="@+id/publicopinion"
@@ -118,7 +118,7 @@
         android:layout_margin="5dp"
         android:paddingLeft="24dp"
         android:text="মন্তব্য :"
-        android:textColor="#E8FFFFFF"
+        android:textColor="@color/text"
         android:textSize="20dp"
         android:textStyle="italic" />
 
@@ -131,12 +131,12 @@
         android:layout_marginTop="5dp"
         android:layout_marginEnd="24dp"
         android:layout_marginBottom="10dp"
-        android:background="#30ffffff"
+        android:background="@drawable/border"
         android:drawablePadding="20dp"
         android:hint="নেই"
         android:padding="20dp"
-        android:textColor="@color/white"
-        android:textColorHint="@color/white" />
+        android:textColor="@color/text"
+        android:textColorHint="@color/texthint" />
 
 
 </RelativeLayout>

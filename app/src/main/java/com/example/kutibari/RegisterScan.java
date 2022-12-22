@@ -21,13 +21,16 @@ import com.google.firebase.ml.vision.common.FirebaseVisionImage;
 import com.google.firebase.ml.vision.text.FirebaseVisionText;
 import com.google.firebase.ml.vision.text.FirebaseVisionTextRecognizer;
 
+import java.util.Arrays;
 import java.util.List;
 
 public class RegisterScan extends AppCompatActivity {
 
     private Button captureImagebtn, detectTextbtn;
     private ImageView imageView;
-    private TextView textView;
+    private TextView textView1;
+    private TextView textView2;
+    private TextView textView3;
     static final int REQUEST_IMAGE_CAPTURE = 1;
     Bitmap imageBitmap;
 
@@ -40,13 +43,17 @@ public class RegisterScan extends AppCompatActivity {
         captureImagebtn = findViewById(R.id.capture_image);
         detectTextbtn = findViewById(R.id.detect_text_image);
         imageView = findViewById(R.id.image_view);
-        textView = findViewById(R.id.text_display);
+        textView1 = findViewById(R.id.text_display1);
+        textView2 = findViewById(R.id.text_display2);
+        textView3 = findViewById(R.id.text_display3);
 
         captureImagebtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 dispatchTakePictureIntent();
-                textView.setText("");
+                textView1.setText("");
+                textView2.setText("");
+                textView3.setText("");
 //                Toast.makeText(RegisterScan.this, "image captured", Toast.LENGTH_SHORT).show();
             }
         });
@@ -113,16 +120,33 @@ public class RegisterScan extends AppCompatActivity {
 //                Toast.makeText(RegisterScan.this, "entered in loop", Toast.LENGTH_SHORT).show();
 
                 String text = block.getText().toString();
-                String a;
-//                if(text.contains("ID NO: ")){
-//                    a="hello";
-//                }
-                textView.setText(text);
-                Intent intent = new Intent(RegisterScan.this, RegistrationNew.class);
-                intent.putExtra("nid",text);
-                startActivity(intent);
+//                String text1 = block.getText().toString();
+//                String text2 = block.getText().toString();
+                String a,b,c,d;
 
+//                a=getNextWord(text,"e:");
+//                b=getNextWord(text1,"h:");
+                c=getNextWord(text,"NO:");
+
+//                textView1.setText(text);
+//                textView2.setText(text1);
+                if(c.length()==10) {
+                    textView3.setText(c);
+                    Intent intent = new Intent(RegisterScan.this, RegistrationNew.class);
+                    intent.putExtra("nid", c);
+                    startActivity(intent);
+                    finish();
+                }
+                else {
+                    textView3.setText("দুঃখিত, আপনার জাতীয় পরিচয়পত্রের নম্বরটি ভুল, সঠিক নম্বর প্রদান করার জন্য স্পষ্ট করে ছবি তুলুন");
+                }
             }
         }
+    }
+
+    public static String getNextWord(String str, String word) {
+        String[] words = str.split(" "), data = word.split(" ");
+        int index = Arrays.asList(words).indexOf((data.length > 1) ? data[data.length - 1] : data[0]);
+        return (index == -1) ? "Not Found" : ((index + 1) == words.length) ? "End" : words[index + 1];
     }
 }

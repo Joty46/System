@@ -9,17 +9,18 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/artistdialog"
-        android:layout_marginTop="50dp"
-        android:layout_marginLeft="10dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="16dp"
         android:text="আমাদের কারিগর"
-        android:textSize="25dp"
-        android:textColor="#454242"/>
+        android:textSize="24dp"
+        android:textColor="@color/text"
+        android:textStyle="bold"/>
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/artistlist"
         android:layout_width="match_parent"
         android:layout_below="@id/artistdialog"
         android:layout_height="500dp"
-        android:layout_marginTop="5dp"
+        android:layout_margin="10dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"

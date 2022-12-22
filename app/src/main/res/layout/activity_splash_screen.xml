@@ -4,7 +4,12 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".SplashScreen"
-    android:background="@drawable/ic_undraw_creative_woman_re_u5tk">
+    tools:context=".SplashScreen">
+
+    <ImageView
+        android:layout_width="250dp"
+        android:layout_height="300dp"
+        android:src="@drawable/ic_undraw_creative_woman_re_u5tk"
+        android:layout_centerHorizontal="true"/>
 
 </RelativeLayout>

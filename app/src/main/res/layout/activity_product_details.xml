@@ -1,152 +1,197 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/register"
     tools:context=".MainActivity">
 
-    <TextView
-        android:id="@+id/pdetailstxt"
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="30dp"
-        android:gravity="center"
-        android:text="কাজ"
-        android:textColor="#E8FFFFFF"
-        android:textSize="35dp"
-        android:textStyle="bold" />
+        android:layout_height="match_parent"
+        android:orientation="vertical">
 
     <ImageView
-        android:id="@+id/imageforpdetail"
-        android:layout_width="150dp"
-        android:layout_height="150dp"
-        android:layout_below="@id/pdetailstxt"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="5dp" />
-    <TextView
-        android:id="@+id/nametxtpdetail"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/imageforpdetail"
-        android:paddingLeft="24dp"
-        android:text="শিরোনাম :"
-        android:textColor="#E8FFFFFF"
-        android:textSize="20dp"
-        android:textStyle="italic"
-        android:layout_margin="5dp"
-        />
-
-    <TextView
-        android:id="@+id/namepdetail"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/nametxtpdetail"
-        android:layout_marginTop="5dp"
-        android:layout_marginStart="24dp"
-        android:layout_marginEnd="24dp"
-        android:layout_marginBottom="10dp"
-        android:background="#30ffffff"
-        android:drawablePadding="20dp"
-        android:hint="নাম"
-        android:padding="20dp"
-        android:textColor="@color/white"
-        android:textColorHint="@color/white" />
-
-    <TextView
-        android:id="@+id/pricetxtpdetail"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/namepdetail"
-        android:layout_margin="5dp"
-        android:paddingLeft="24dp"
-        android:text="দাম :"
-        android:textColor="#E8FFFFFF"
-        android:textSize="20dp"
-        android:textStyle="italic" />
-
-    <TextView
-        android:id="@+id/pricepdetail"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/pricetxtpdetail"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="5dp"
-        android:layout_marginEnd="24dp"
-        android:layout_marginBottom="10dp"
-        android:background="#30ffffff"
-        android:drawablePadding="20dp"
-        android:hint="কত টাকাা"
-        android:padding="20dp"
-        android:textColor="@color/white"
-        android:textColorHint="@color/white" />
-
-    <TextView
-        android:id="@+id/daytxtpdetails"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/pricepdetail"
-        android:layout_margin="5dp"
-        android:paddingLeft="24dp"
-        android:text="সময় :"
-        android:textColor="#E8FFFFFF"
-        android:textSize="20dp"
-        android:textStyle="italic" />
-
-    <TextView
-        android:id="@+id/dayspdetail"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/daytxtpdetails"
-        android:layout_marginTop="5dp"
-        android:layout_marginStart="24dp"
-        android:layout_marginEnd="24dp"
-        android:layout_marginBottom="10dp"
-        android:background="#30ffffff"
-        android:drawablePadding="20dp"
-        android:hint="কাজটি সম্পন্ন করতে করতে কত দিন লাগবে"
-        android:padding="20dp"
-        android:textColor="@color/white"
-        android:textColorHint="@color/white" />
-
-    <TextView
-        android:id="@+id/opiniontxtpdetails"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/dayspdetail"
-        android:layout_margin="5dp"
-        android:paddingLeft="24dp"
-        android:text="মন্তব্য :"
-        android:textColor="#E8FFFFFF"
-        android:textSize="20dp"
-        android:textStyle="italic" />
-
-    <TextView
-        android:id="@+id/opinionpdetail"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/opiniontxtpdetails"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="5dp"
-        android:layout_marginEnd="24dp"
-        android:layout_marginBottom="10dp"
-        android:background="#30ffffff"
-        android:drawablePadding="20dp"
-        android:hint="নেই"
-        android:padding="20dp"
-        android:textColor="@color/white"
-        android:textColorHint="@color/white" />
-    <TextView
-        android:id="@+id/wantorder"
+        android:id="@+id/upperpic"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/opinionpdetail"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="20dp"
-        android:layout_marginBottom="5dp"
-        android:text="আপনি কি অর্ডার করতে ইচ্ছুক?"
-        android:textColor="@color/black"/>
+        android:layout_height="147dp"
+        android:layout_marginTop="-1dp"
+        android:src="@drawable/product_background" />
+
+
+        <ImageView
+            android:id="@+id/imageforpdetail"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:layout_below="@id/upperpic"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="-1dp" />
+
+<!--        <TextView-->
+<!--            android:id="@+id/nametxtpdetail"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_below="@id/imageforpdetail"-->
+<!--            android:layout_marginStart="5dp"-->
+<!--            android:layout_marginTop="5dp"-->
+<!--            android:layout_marginEnd="5dp"-->
+<!--            android:layout_marginBottom="5dp"-->
+<!--            android:paddingLeft="24dp"-->
+<!--            android:text="শিরোনাম :"-->
+<!--            android:textColor="#B3000000"-->
+<!--            android:textSize="20dp"-->
+<!--            android:textStyle="italic" />-->
+
+        <ImageView
+            android:id="@+id/nametxtpdetail"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:layout_below="@+id/imageforpdetail"
+            android:layout_marginStart="24dp"
+            android:src="@drawable/name" />
+
+        <TextView
+            android:id="@+id/namepdetail"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/nametxtpdetail"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginEnd="24dp"
+            android:layout_marginBottom="10dp"
+            android:drawablePadding="20dp"
+            android:hint="নাম"
+            android:padding="20dp"
+            android:textColor="#B3000000"
+            android:textColorHint="#80000000" />
+
+<!--        <TextView-->
+<!--            android:id="@+id/pricetxtpdetail"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_below="@id/namepdetail"-->
+<!--            android:layout_marginStart="5dp"-->
+<!--            android:layout_marginTop="5dp"-->
+<!--            android:layout_marginEnd="5dp"-->
+<!--            android:layout_marginBottom="5dp"-->
+<!--            android:paddingLeft="24dp"-->
+<!--            android:text="দাম :"-->
+<!--            android:textColor="#B3000000"-->
+<!--            android:textSize="20dp"-->
+<!--            android:textStyle="italic" />-->
+        <ImageView
+            android:id="@+id/pricetxtpdetail"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:layout_below="@+id/imageforpdetail"
+            android:layout_alignParentRight="true"
+            android:layout_marginEnd="24dp"
+            android:src="@drawable/price" />
+
+        <TextView
+            android:id="@+id/pricepdetail"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/pricetxtpdetail"
+            android:layout_alignParentRight="true"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginEnd="24dp"
+            android:layout_marginBottom="10dp"
+            android:drawablePadding="20dp"
+            android:hint="কত টাকাা"
+            android:padding="20dp"
+            android:textColor="#B3000000"
+            android:textColorHint="#80000000" />
+
+<!--        <TextView-->
+<!--            android:id="@+id/daytxtpdetails"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_below="@id/pricepdetail"-->
+<!--            android:layout_marginStart="5dp"-->
+<!--            android:layout_marginTop="5dp"-->
+<!--            android:layout_marginEnd="5dp"-->
+<!--            android:layout_marginBottom="5dp"-->
+<!--            android:paddingLeft="24dp"-->
+<!--            android:text="সময় :"-->
+<!--            android:textColor="#B3000000"-->
+<!--            android:textSize="20dp"-->
+<!--            android:textStyle="italic" />-->
+
+        <ImageView
+            android:id="@+id/daytxtpdetails"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:layout_below="@+id/namepdetail"
+            android:layout_marginStart="24dp"
+            android:src="@drawable/time" />
+
+        <TextView
+            android:id="@+id/dayspdetail"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/daytxtpdetails"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginEnd="24dp"
+            android:layout_marginBottom="10dp"
+            android:drawablePadding="20dp"
+            android:hint="সময়"
+            android:padding="20dp"
+            android:textColor="#B3000000"
+            android:textColorHint="#80000000" />
+
+<!--        <TextView-->
+<!--            android:id="@+id/opiniontxtpdetails"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_below="@id/dayspdetail"-->
+<!--            android:layout_marginStart="5dp"-->
+<!--            android:layout_marginTop="5dp"-->
+<!--            android:layout_marginEnd="5dp"-->
+<!--            android:layout_marginBottom="5dp"-->
+<!--            android:paddingLeft="24dp"-->
+<!--            android:text="মন্তব্য :"-->
+<!--            android:textColor="#B3000000"-->
+<!--            android:textSize="20dp"-->
+<!--            android:textStyle="italic" />-->
+
+        <ImageView
+            android:id="@+id/opiniontxtpdetails"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:layout_below="@+id/namepdetail"
+            android:layout_marginEnd="24dp"
+            android:layout_alignParentRight="true"
+            android:src="@drawable/comment" />
+
+        <TextView
+            android:id="@+id/opinionpdetail"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/opiniontxtpdetails"
+            android:layout_alignParentRight="true"
+            android:layout_marginTop="5dp"
+            android:layout_marginEnd="24dp"
+            android:layout_marginBottom="10dp"
+            android:drawablePadding="20dp"
+            android:hint="নেই"
+            android:padding="20dp"
+            android:textColor="#B3000000"
+            android:textColorHint="#80000000" />
+
+        <TextView
+            android:id="@+id/wantorder"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/opinionpdetail"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="5dp"
+            android:text="আপনি কি অর্ডার করতে ইচ্ছুক?"
+            android:textColor="#B3000000" />
 
 
 </RelativeLayout>
+</ScrollView>

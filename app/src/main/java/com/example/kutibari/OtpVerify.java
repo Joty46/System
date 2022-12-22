@@ -39,6 +39,7 @@ public class OtpVerify extends AppCompatActivity {
 
     private ActivityOtpVerifyBinding binding;
     private String verificationId;
+    String mobilenum;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,7 +48,8 @@ public class OtpVerify extends AppCompatActivity {
         setContentView(binding.getRoot());
 
         editTextInput();
-
+        mobilenum = "0"+getIntent().getStringExtra("phone");
+        mobilenum = mobilenum+"@gmail.com";
         binding.tvMobile.setText(String.format(
                 "+880-%s", getIntent().getStringExtra("phone")
         ));
@@ -94,6 +96,7 @@ public class OtpVerify extends AppCompatActivity {
                                             binding.btnVerify.setVisibility(View.INVISIBLE);
                                             Toast.makeText(OtpVerify.this, "Welcome...", Toast.LENGTH_SHORT).show();
                                             Intent intent = new Intent(OtpVerify.this, NewPassword.class);
+                                            intent.putExtra("number",mobilenum);
                                             intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
                                             startActivity(intent);
                                         } else {

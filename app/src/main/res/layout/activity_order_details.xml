@@ -44,12 +44,13 @@
         android:layout_marginTop="5dp"
         android:layout_marginEnd="24dp"
         android:layout_marginBottom="10dp"
-        android:background="#30ffffff"
+        android:background="@drawable/border"
         android:drawablePadding="20dp"
         android:hint="নাম"
         android:padding="20dp"
         android:textColor="#80000000"
-        android:textColorHint="#80000000" />
+        android:textColorHint="#80000000"
+        android:textSize="24dp"/>
 
     <TextView
         android:id="@+id/orderwhere"
@@ -75,12 +76,13 @@
         android:layout_marginTop="5dp"
         android:layout_marginEnd="24dp"
         android:layout_marginBottom="10dp"
-        android:background="#30ffffff"
+        android:background="@drawable/border"
         android:drawablePadding="20dp"
         android:hint="ঠিকানা"
         android:padding="20dp"
         android:textColor="#80000000"
-        android:textColorHint="#80000000" />
+        android:textColorHint="#80000000"
+        android:textSize="24dp"/>
 
     <TextView
         android:id="@+id/orderwhatqty"
@@ -106,12 +108,13 @@
         android:layout_marginTop="5dp"
         android:layout_marginEnd="24dp"
         android:layout_marginBottom="10dp"
-        android:background="#30ffffff"
+        android:background="@drawable/border"
         android:drawablePadding="20dp"
         android:hint="পরিমাণ"
         android:padding="20dp"
         android:textColor="#80000000"
-        android:textColorHint="#80000000" />
+        android:textColorHint="#80000000"
+        android:textSize="24dp"/>
 
     <TextView
         android:id="@+id/orderrecommendation"
@@ -128,23 +131,6 @@
         android:textSize="20dp"
         android:textStyle="italic" />
 
-    <TextView
-        android:id="@+id/orderspecialrec"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/orderrecommendation"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="5dp"
-        android:layout_marginEnd="24dp"
-        android:layout_marginBottom="10dp"
-        android:background="#30ffffff"
-        android:drawablePadding="20dp"
-        android:hint="নেই"
-        android:padding="20dp"
-        android:textColor="#80000000"
-        android:textColorHint="#80000000" />
-
-
     <pl.droidsonroids.gif.GifImageView
         android:id="@+id/image"
         android:layout_width="300dp"
@@ -154,6 +140,25 @@
         android:alpha=".5"
         android:scaleType="centerCrop"
         android:src="@drawable/delivery" />
+
+    <TextView
+        android:id="@+id/orderspecialrec"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/orderrecommendation"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginEnd="24dp"
+        android:layout_marginBottom="10dp"
+        android:background="@drawable/border"
+        android:drawablePadding="20dp"
+        android:hint="নেই"
+        android:padding="20dp"
+        android:textColor="#80000000"
+        android:textColorHint="#80000000"
+        android:textSize="24dp" />
+
+
 
 
 </RelativeLayout>
