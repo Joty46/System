@@ -28,26 +28,52 @@ import java.util.UUID;
 
 public class ProfilePage extends AppCompatActivity {
 
-
-    String[] itemfororder = {"item1","item2","item3","item4"};
     AutoCompleteTextView autoCompleteTxtForOrders,autoCompleteTxtForWorks;
     ArrayAdapter<String> adapterItemforOrders,adapterItemforWorks;
     Button uploadbtn;
     FirebaseAuth mAuth;
-    DatabaseReference reference;
+    DatabaseReference reference,reference2;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_profile_page);
-
-        autoCompleteTxtForOrders=findViewById(R.id.auto_complete_text_orders);
-        adapterItemforOrders=new ArrayAdapter<String>(this,R.layout.list_for_orders,itemfororder);
-        autoCompleteTxtForOrders.setAdapter(adapterItemforOrders);
         FirebaseUser user=FirebaseAuth.getInstance().getCurrentUser();
         String uuid=user.getUid();
-        reference= FirebaseDatabase.getInstance().getReference(uuid).child("product");
+        reference= FirebaseDatabase.getInstance().getReference(uuid).child("Orders");
         reference.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+
+                ArrayList<String> itemfororders = new ArrayList<>();
+                ArrayList<String> uiditemfororders = new ArrayList<>();
+
+                for (DataSnapshot postSnapshot: snapshot.getChildren()) {
+                    itemfororders.add(postSnapshot.getValue(Orders.class).getPname());
+                    uiditemfororders.add(postSnapshot.getValue(Orders.class).getPid().toString());
+                }
+                autoCompleteTxtForOrders=findViewById(R.id.auto_complete_text_orders);
+                adapterItemforOrders=new ArrayAdapter<String>(ProfilePage.this,R.layout.list_for_orders,itemfororders);
+                autoCompleteTxtForOrders.setAdapter(adapterItemforOrders);
+                autoCompleteTxtForOrders.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                    @Override
+                    public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                        // String itemsforworks=parent.getItemAtPosition(position).toString();
+                        Intent intent=new Intent(ProfilePage.this,OrderDetails.class);//works.java
+                        intent.putExtra("Pid",uiditemfororders.get(position));
+                        intent.putExtra("from","profilepage");
+                        startActivity(intent);
+                    }
+                });
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
+        reference2= FirebaseDatabase.getInstance().getReference(uuid).child("product");
+        reference2.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
 
@@ -78,14 +104,7 @@ public class ProfilePage extends AppCompatActivity {
 
             }
         });
-        autoCompleteTxtForOrders.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                // String itemsfororder=parent.getItemAtPosition(position).toString();
-                Intent intent=new Intent(ProfilePage.this,OrderDetails.class);//order details
-                startActivity(intent);
-            }
-        });
+
 
         uploadbtn=findViewById(R.id.upload);
         uploadbtn.setOnClickListener(new View.OnClickListener() {

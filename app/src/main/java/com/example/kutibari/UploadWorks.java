@@ -100,7 +100,7 @@ public class UploadWorks extends AppCompatActivity {
         title=editname.getText().toString();
         price=editprice.getText().toString();
         days=editday.getText().toString();
-        final StorageReference reference=storage.getReference().child("image");
+        final StorageReference reference=storage.getReference().child("image/"+id.toString());
         reference.putFile(ur).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
             @Override
             public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
@@ -118,7 +118,7 @@ public class UploadWorks extends AppCompatActivity {
                                 User user=snapshot.getValue(User.class);
                                 uname=user.getUsername();
                                 Log.e(TAG, "onDataChange: "+uname );
-                                AllProduct allProduct=new AllProduct(id,title,uname,uid,uri.toString());
+                                AllProduct allProduct=new AllProduct(id,title,uname,price,uid,uri.toString());
                                 database2.getReference().child("AllProduct").child(id).setValue(allProduct).addOnSuccessListener(new OnSuccessListener<Void>() {
                                     @Override
                                     public void onSuccess(Void unused) {

@@ -3,16 +3,18 @@ package com.example.kutibari;
 import java.util.UUID;
 
 public class AllProduct {
-    String pid,pname,uname;
+    String pid,pname,uname,price;
     String uid,image;
 
-    public AllProduct(String pid, String pname, String uname, String uid, String image) {
+    public AllProduct(String pid, String pname, String uname,String price, String uid, String image) {
         this.pid = pid;
         this.pname = pname;
         this.uname = uname;
+        this.price = price;
         this.uid = uid;
         this.image = image;
     }
+
     public AllProduct(){}
 
     public String getImage() {
@@ -37,6 +39,14 @@ public class AllProduct {
 
     public String getUid() {
         return uid;
+    }
+
+    public String getPrice() {
+        return price;
+    }
+
+    public void setPrice(String price) {
+        this.price = price;
     }
 
     public void setPid(String pid) {

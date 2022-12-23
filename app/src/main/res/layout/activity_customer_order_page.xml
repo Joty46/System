@@ -73,12 +73,41 @@
 <!--            android:padding="20dp"-->
 <!--            android:textColor="#80000000"-->
 <!--            android:textColorHint="#80000000" />-->
-
         <TextView
-            android:id="@+id/txtforqty"
+            android:id="@+id/addresstxt"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@id/price_show"
+            android:layout_marginStart="15dp"
+            android:layout_marginTop="15dp"
+            android:layout_marginEnd="15dp"
+            android:layout_marginBottom="15dp"
+            android:paddingLeft="24dp"
+            android:text="Address :"
+            android:textColor="#B3000000"
+            android:textSize="20dp"
+            android:textStyle="italic" />
+
+        <EditText
+            android:id="@+id/address"
+            android:inputType="text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/addresstxt"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginEnd="24dp"
+            android:layout_marginBottom="10dp"
+            android:background="@drawable/border"
+            android:drawablePadding="20dp"
+            android:padding="20dp"
+            android:textColor="#B3000000"
+            android:textColorHint="#B3000000" />
+        <TextView
+            android:id="@+id/qtytxt"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/address"
             android:layout_marginStart="15dp"
             android:layout_marginTop="15dp"
             android:layout_marginEnd="15dp"
@@ -90,11 +119,11 @@
             android:textStyle="italic" />
 
         <EditText
-            android:id="@+id/qtytxt"
+            android:id="@+id/oqty"
             android:inputType="number"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@id/txtforqty"
+            android:layout_below="@id/qtytxt"
             android:layout_marginStart="24dp"
             android:layout_marginTop="5dp"
             android:layout_marginEnd="24dp"
@@ -153,7 +182,7 @@
             android:id="@+id/orderbtn"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@id/qtytxt"
+            android:layout_below="@id/oqty"
             android:layout_alignParentBottom="true"
             android:layout_centerHorizontal="true"
             android:layout_marginStart="30dp"
