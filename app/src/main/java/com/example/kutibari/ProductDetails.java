@@ -111,6 +111,8 @@ public class ProductDetails extends AppCompatActivity {
         }
 
 
+//        reference2= FirebaseDatabase.getInstance().getReference(uuid);
+//        reference= FirebaseDatabase.getInstance().getReference(uuid).child("product");
         giverating.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -125,21 +127,26 @@ public class ProductDetails extends AppCompatActivity {
                                 int rate=0;
                                 if(finalrate==5){
                                     rate=product.getFive();
+                                    stringrate="five";
                                 }
                                 else if(finalrate==4){
                                     rate=product.getFour();
+                                    stringrate="four";
                                 }
                                 else if(finalrate==3){
                                     rate=product.getThree();
+                                    stringrate="three";
                                 }
                                 else if(finalrate==2){
                                     rate=product.getTwo();
+                                    stringrate="two";
                                 }
                                 else if(finalrate==1){
                                     rate=product.getOne();
+                                    stringrate="one";
                                 }
-                                rate += 1;
-                                reference.child(product.getUid()).child("five").setValue(rate);
+                                rate += 2;
+                                reference.child(uid).child(stringrate).setValue(rate);
                                 Toast.makeText(ProductDetails.this,"Your rating has been taken",Toast.LENGTH_SHORT).show();
 
                             }
