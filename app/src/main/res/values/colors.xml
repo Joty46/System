@@ -10,4 +10,12 @@
     <color name="full">#555FD2</color>
     <color name="texthint">#80000000</color>
     <color name="text">#B3000000</color>
+    <color name="five">#018723</color>
+    <color name="four">#90C158</color>
+    <color name="three">#CDDC39</color>
+    <color name="two">#FF9800</color>
+    <color name="one">#B3261B</color>
+    <color name="star">#09EA12</color>
+    <color name="starhint">#1A000000</color>
+
 </resources>

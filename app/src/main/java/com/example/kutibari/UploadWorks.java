@@ -2,18 +2,9 @@ package com.example.kutibari;
 
 import static androidx.constraintlayout.helper.widget.MotionEffect.TAG;
 
-import androidx.activity.result.ActivityResultCallback;
-import androidx.activity.result.ActivityResultLauncher;
-import androidx.activity.result.contract.ActivityResultContracts;
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-
-import android.app.Activity;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
-import android.os.SystemClock;
-import android.renderscript.ScriptGroup;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -21,21 +12,23 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Toast;
 
+import androidx.activity.result.ActivityResultCallback;
+import androidx.activity.result.ActivityResultLauncher;
+import androidx.activity.result.contract.ActivityResultContracts;
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+
 import com.example.kutibari.databinding.ActivityUploadWorksBinding;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
-import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
-
-import java.util.UUID;
 
 public class UploadWorks extends AppCompatActivity {
     ActivityUploadWorksBinding binding;
@@ -45,6 +38,7 @@ public class UploadWorks extends AppCompatActivity {
     Uri ur;
     Button uploadworks;
     private String id,title,price,days;
+    private int five,four,three,one,two,total;
     FirebaseDatabase database,database2;
     FirebaseStorage storage;
     ActivityResultLauncher<String> launcher ;
@@ -100,6 +94,7 @@ public class UploadWorks extends AppCompatActivity {
         title=editname.getText().toString();
         price=editprice.getText().toString();
         days=editday.getText().toString();
+        five = 0;four=0; three=0; two=0; one=0; total=0;
         final StorageReference reference=storage.getReference().child("image");
         reference.putFile(ur).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
             @Override
@@ -108,7 +103,8 @@ public class UploadWorks extends AppCompatActivity {
                     @Override
                     public void onSuccess(Uri uri) {
                         uid=mAuth.getCurrentUser().getUid();
-                        Product product=new Product(id,uri.toString(),title,price,days,uid);
+//                        Product product=new Product(id,uri.toString(),title,price,days,uid,five,four,three,two,one);
+                        Product product= new Product(id,uri.toString(),title,price,days,uid,five,four,three,two,one,total);
                         Log.e(TAG, "onSuccess: "+ mAuth.getCurrentUser().getEmail() );
 
 
@@ -118,7 +114,7 @@ public class UploadWorks extends AppCompatActivity {
                                 User user=snapshot.getValue(User.class);
                                 uname=user.getUsername();
                                 Log.e(TAG, "onDataChange: "+uname );
-                                AllProduct allProduct=new AllProduct(id,title,uname,uid,uri.toString());
+                                AllProduct allProduct=new AllProduct(id,title,uname,uid,uri.toString(),five,four,three,two,one,total);
                                 database2.getReference().child("AllProduct").child(id).setValue(allProduct).addOnSuccessListener(new OnSuccessListener<Void>() {
                                     @Override
                                     public void onSuccess(Void unused) {
