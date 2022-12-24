@@ -10,6 +10,7 @@ import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -24,7 +25,7 @@ import com.squareup.picasso.Picasso;
 
 public class Works extends AppCompatActivity {
     ImageView wimage;
-    TextView wtitle,wprice,wdays;
+    TextView wtitle,wprice,wdays,remove;
     DatabaseReference reference;
     String uuid;
 
@@ -36,6 +37,7 @@ public class Works extends AppCompatActivity {
         wtitle=findViewById(R.id.name);
         wprice=findViewById(R.id.price);
         wdays=findViewById(R.id.days);
+        remove=findViewById(R.id.remove);
         Intent intent=getIntent();
         String uid=intent.getStringExtra("Uid");
         FirebaseUser user=FirebaseAuth.getInstance().getCurrentUser();
@@ -62,6 +64,32 @@ public class Works extends AppCompatActivity {
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
 
+            }
+        });
+        remove.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                reference= FirebaseDatabase.getInstance().getReference(uuid).child("product");
+                reference.addValueEventListener(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot snapshot) {
+                        Product product;
+                        for (DataSnapshot postSnapshot: snapshot.getChildren()) {
+                            String newid=postSnapshot.getValue(Product.class).getId();
+                            if (newid.equals(uid)){
+                                postSnapshot.getRef().removeValue();
+                            }
+                        }
+
+                    }
+
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError error) {
+
+                    }
+                });
+                Intent intent1=new Intent(Works.this,ProfilePage.class);
+                startActivity(intent1);
             }
         });
 
