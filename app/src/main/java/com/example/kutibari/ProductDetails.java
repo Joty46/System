@@ -1,9 +1,12 @@
 package com.example.kutibari;
 
+import static android.content.ContentValues.TAG;
+
 import android.content.Intent;
 import android.content.res.ColorStateList;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -50,16 +53,17 @@ public class ProductDetails extends AppCompatActivity {
         giverating=findViewById(R.id.yourrating);
         Intent intent=getIntent();
         String uid=intent.getStringExtra("Uid");
-
         uuid=intent.getStringExtra("Uuid");
+        Log.e(TAG, "producy "+uuid );
 
-        reference= FirebaseDatabase.getInstance().getReference(uuid).child("product");
+        reference= FirebaseDatabase.getInstance().getReference().child(uuid).child("product");
         reference.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 Product product;
                 for (DataSnapshot postSnapshot: snapshot.getChildren()) {
                     String newid=postSnapshot.getValue(Product.class).getId();
+
                     if (newid.equals(uid)){
                         product=postSnapshot.getValue(Product.class);
                         String link=product.getImage();
