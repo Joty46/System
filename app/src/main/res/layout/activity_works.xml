@@ -137,6 +137,30 @@
         android:padding="20dp"
         android:textColor="@color/text"
         android:textColorHint="@color/texthint" />
+    <LinearLayout
+        android:id="@+id/lastdialog"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/peopleopinion"
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:layout_marginBottom="30dp"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="পন্যটির উৎপাদন বন্ধ আছে?"
+            android:textColor="#B3000000"/>
+        <TextView
+            android:id="@+id/remove"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="5dp"
+            android:text="বাদ দিন।"
+            android:textStyle="bold"
+            android:textColor="#B3000000"/>
+    </LinearLayout>
 
 
 </RelativeLayout>

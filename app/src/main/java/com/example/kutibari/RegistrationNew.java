@@ -7,6 +7,8 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -31,10 +33,12 @@ public class RegistrationNew extends AppCompatActivity {
     FirebaseUser mUser;
     FirebaseDatabase reference;
     String role,role1;
+    RadioGroup radioGroup;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_registration_new);
+        radioGroup=(RadioGroup)findViewById(R.id.userrole);
 
         /**
          * code
@@ -50,7 +54,7 @@ public class RegistrationNew extends AppCompatActivity {
         final EditText username = findViewById(R.id.username);
         final EditText password = findViewById(R.id.password);
         final EditText conpass = findViewById(R.id.conpass);
-        final EditText userrole=findViewById(R.id.userrole);
+       // final EditText userrole=findViewById(R.id.userrole);
 
         final MaterialButton register = findViewById(R.id.signup);
         final TextView login = findViewById(R.id.loginnow);
@@ -58,7 +62,22 @@ public class RegistrationNew extends AppCompatActivity {
         mAuth=FirebaseAuth.getInstance();
         mUser=mAuth.getCurrentUser();
         reference=FirebaseDatabase.getInstance();
+        radioGroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+                    @Override
 
+                    // The flow will come here when
+                    // any of the radio buttons in the radioGroup
+                    // has been clicked
+
+                    // Check which radio button has been clicked
+                    public void onCheckedChanged(RadioGroup group,
+                                                 int checkedId)
+                    {
+
+                        // Get the selected Radio Button
+                        RadioButton radioButton = (RadioButton)group.findViewById(checkedId);
+                    }
+                });
         /**
          * registering process
          */
@@ -73,8 +92,20 @@ public class RegistrationNew extends AppCompatActivity {
                 String user_name = username.getText().toString();
                 String[] pass = {password.getText().toString()};
                 String confirm = conpass.getText().toString();
-                role1=userrole.getText().toString();
-                role=role1.substring(0, 1).toUpperCase()+role1.substring(1).toLowerCase();
+                int selectedId = radioGroup.getCheckedRadioButtonId();
+                if (selectedId == -1) {
+                    Toast.makeText(RegistrationNew.this, "No role has been selected", Toast.LENGTH_SHORT).show();
+                }
+                else {
+
+                    RadioButton radioButton = (RadioButton)radioGroup.findViewById(selectedId);
+
+                    // Now display the value of selected item
+                    // by the Toast message
+                    role=radioButton.getText().toString();
+                }
+              //  role1=userrole.getText().toString();
+               // role=role1.substring(0, 1).toUpperCase()+role1.substring(1).toLowerCase();
 
                 /**
                  * checking if all fields are fulfilled correctly
@@ -128,7 +159,6 @@ public class RegistrationNew extends AppCompatActivity {
             }
         });
     }
-
     private void sendUserToNextActivity() {
         Intent intent=new Intent(RegistrationNew.this,LoginPage.class);
         intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK|Intent.FLAG_ACTIVITY_NEW_TASK);

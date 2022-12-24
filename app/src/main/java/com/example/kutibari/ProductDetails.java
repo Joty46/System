@@ -26,7 +26,7 @@ public class ProductDetails extends AppCompatActivity {
     ImageView pdimage;
     TextView pdtitle,pdprice,pddays;
     DatabaseReference reference,reference2;
-    String uuid,title,price;
+    String uuid,title,price,pid;
     TextView pdetailtxt;
     TextView wantorder;
     TextView giverating;
@@ -69,6 +69,7 @@ public class ProductDetails extends AppCompatActivity {
                         pddays.setText(product.getDays());
                         title=product.getTitle();
                         price=product.getPrice();
+                        pid=product.getId();
                     }
                 }
 
@@ -86,6 +87,7 @@ public class ProductDetails extends AppCompatActivity {
                 intent1.putExtra("uid", uuid);
                 intent1.putExtra("title",title);
                 intent1.putExtra("price",price);
+                intent1.putExtra("pid",pid);
                 startActivity(intent1);
                 finish();
             }

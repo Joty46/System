@@ -1,17 +1,17 @@
 package com.example.kutibari;
 
 public class AllProduct {
-    String pid,pname,uname;
+    String pid,pname,uname,price;
     String uid,image;
     int five,four,three,two,one,total;
-    public AllProduct(){
 
-    }
 
     public AllProduct(String pid, String pname, String uname, String uid, String image,int five,int four,int three,int two,int one,int total) {
+
         this.pid = pid;
         this.pname = pname;
         this.uname = uname;
+        this.price = price;
         this.uid = uid;
         this.image = image;
         this.five=five;
@@ -20,7 +20,8 @@ public class AllProduct {
         this.two=two;
         this.one=one;
     }
-    public AllProduct(String id, String title, String uname, String uid, String s, int five, int four, int three, int two, int one){}
+
+    public AllProduct(){}
 
     public String getImage() {
         return image;
@@ -66,6 +67,14 @@ public class AllProduct {
 
     public int getTotal() {
         return total;
+    }
+
+    public String getPrice() {
+        return price;
+    }
+
+    public void setPrice(String price) {
+        this.price = price;
     }
 
     public void setPid(String pid) {

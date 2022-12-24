@@ -1,6 +1,9 @@
 package com.example.kutibari;
 
+import static androidx.constraintlayout.helper.widget.MotionEffect.TAG;
+
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -9,6 +12,7 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.material.button.MaterialButton;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
@@ -27,6 +31,7 @@ public class CustomerOrderPage extends AppCompatActivity {
     FirebaseAuth auth = FirebaseAuth.getInstance();
     TextView productname,price_show,price_confirmation;
     int taka;
+    EditText address,qty;
 
 
     @Override
@@ -34,23 +39,29 @@ public class CustomerOrderPage extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_customer_order_page);
 
-        final EditText qty = findViewById(R.id.qtytxt);
-        final MaterialButton submit = findViewById(R.id.orderbtn);
+        qty = findViewById(R.id.oqty);
+        MaterialButton submit = findViewById(R.id.orderbtn);
         productname=findViewById(R.id.txtforwhattoorder);
         price_show=findViewById(R.id.price_show);
+        address=findViewById(R.id.address);
+        reference=FirebaseDatabase.getInstance();
 //        price_confirmation=findViewById(R.id.final_price);
 
         String uid=getIntent().getStringExtra("uid");
         String title=getIntent().getStringExtra("title");
         String price=getIntent().getStringExtra("price");
+        String pid=getIntent().getStringExtra("pid");
+
         productname.setText("The product you want to order : "+title);
         taka=Integer.parseInt(price);
         taka *= 0.4;
         submit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                    String puid=mAuth.getCurrentUser().getUid();
+                    String quantity = qty.getText().toString();
 
-                    final String quantity = qty.getText().toString();
+                    String orderadd=address.getText().toString();
                     int quant = Integer.parseInt(quantity);
                     taka *= quant;
                     String show_price = Integer.toString(taka);
@@ -106,6 +117,31 @@ public class CustomerOrderPage extends AppCompatActivity {
 
                         }
                     });
+                reference.getReference().child("users").child(puid).addValueEventListener(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot snapshot) {
+                        User user=snapshot.getValue(User.class);
+                        String pusername =user.getUsername();
+                        Orders  orders=new Orders(pusername,orderadd,quantity,title,pid);
+                        reference.getReference().child(uid).child("Orders").child(pid).setValue(orders).addOnSuccessListener(new OnSuccessListener<Void>() {
+                            @Override
+                            public void onSuccess(Void unused) {
+                                Log.e(TAG, "onSuccess: ordercomfirmed" );
+                            }
+                        });
+                        reference.getReference().child("AllOrders").child(pid).setValue(orders).addOnSuccessListener(new OnSuccessListener<Void>() {
+                            @Override
+                            public void onSuccess(Void unused) {
+                                Log.e(TAG, "onSuccess: ordercomfirmed" );
+                            }
+                        });
+                    }
+
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError error) {
+
+                    }
+                });
             }
         });
 

@@ -28,7 +28,7 @@
                 android:layout_marginTop="350dp"
                 android:layout_marginLeft="24dp"
                 android:layout_marginRight="24dp"
-                android:hint="আপনার প্রোফাইল"
+                android:hint="আপনার অর্ডার"
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
                 >
                 <AutoCompleteTextView
