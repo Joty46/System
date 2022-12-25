@@ -28,9 +28,6 @@ public class WishList extends AppCompatActivity {
     /**
      * grid view and arrays for category of products
      */
-//    private GridView gridcat;
-//    public static int categoryImages[] = {R.drawable.craft1, R.drawable.craft2, R.drawable.craft3, R.drawable.craft4, R.drawable.craft5, R.drawable.craft6, R.drawable.craft7};
-//    public static String[] productName = {"cat1", "cat2", "cat3", "cat4", "cat5", "cat6", "cat7"};
     FirebaseAuth mAuth = FirebaseAuth.getInstance();
     FirebaseDatabase reference;
     private RecyclerView recyclerView;
@@ -52,8 +49,8 @@ public class WishList extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_customer_profile_page);
-        customeruname=findViewById(R.id.cusername);
+        setContentView(R.layout.activity_wish_list);
+     //   customeruname=findViewById(R.id.cusername);
         Log.e(TAG, "onCreate: I have comed to this page" );
 
         /**
@@ -74,28 +71,28 @@ public class WishList extends AppCompatActivity {
         /**
          * Image listener to show login dialogue;
          */
-        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
-        String uuid=user.getUid();
-        reference.getReference().child("users").child(uuid).addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot snapshot) {
-                User user = snapshot.getValue(User.class);
-                if(user.role.equals("বিক্রেতা") || user.role.equals("Seller"))
-                {
-                    startActivity(new Intent(WishList.this,MainActivity.class));
-                    finish();
-                }
-                else
-                {
-                    customeruname.setText(""+user.getUsername().toString());
-                }
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError error) {
-
-            }
-        });
+//        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+//        String uuid=user.getUid();
+//        reference.getReference().child("users").child(uuid).addValueEventListener(new ValueEventListener() {
+//            @Override
+//            public void onDataChange(@NonNull DataSnapshot snapshot) {
+//                User user = snapshot.getValue(User.class);
+//                if(user.role.equals("বিক্রেতা") || user.role.equals("Seller"))
+//                {
+//                    startActivity(new Intent(WishList.this,MainActivity.class));
+//                    finish();
+//                }
+//                else
+//                {
+//                    customeruname.setText(""+user.getUsername().toString());
+//                }
+//            }
+//
+//            @Override
+//            public void onCancelled(@NonNull DatabaseError error) {
+//
+//            }
+//        });
 
         recyclerView=findViewById(R.id.productlist);
         databaseReference=FirebaseDatabase.getInstance().getReference();
