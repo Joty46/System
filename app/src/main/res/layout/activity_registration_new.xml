@@ -104,52 +104,12 @@
             android:padding="20dp"
             android:textColor="#B3000000"
             android:textColorHint="#80000000" />
-        <TextView
-            android:id="@+id/uroletxt"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/username"
-            android:text="ব্যবহারকারীর ভুমিকা:"
-            android:textSize="20dp"
-            android:layout_marginStart="24dp"
-            android:layout_marginTop="10dp"
-            android:layout_marginEnd="24dp"
-            android:layout_marginBottom="10dp"/>
-
-        <RadioGroup
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/userrole"
-            android:layout_below="@id/uroletxt"
-            android:layout_marginStart="24dp"
-            android:layout_marginTop="10dp"
-            android:layout_marginEnd="24dp"
-            android:layout_marginBottom="15dp">
-
-            <RadioButton
-                android:id="@+id/rbuyer"
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
-                android:text="Buyer"
-                android:layout_marginTop="10dp"
-                android:checked="false"
-                android:textSize="20dp" />
-
-            <RadioButton
-                android:id="@+id/rseller"
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
-                android:text="Seller"
-                android:layout_marginTop="20dp"
-                android:checked="false"
-                android:textSize="20dp" />
-        </RadioGroup>
 
         <EditText
             android:id="@+id/password"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@id/userrole"
+            android:layout_below="@id/username"
             android:layout_marginStart="24dp"
             android:layout_marginTop="10dp"
             android:layout_marginEnd="24dp"
@@ -182,11 +142,54 @@
             android:textColor="#B3000000"
             android:textColorHint="#80000000" />
 
+        <TextView
+            android:id="@+id/uroletxt"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/conpass"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="24dp"
+            android:layout_marginBottom="10dp"
+            android:text="ব্যবহারকারীর ভুমিকা:"
+            android:textSize="20dp" />
+
+        <RadioGroup
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/userrole"
+            android:layout_below="@id/uroletxt"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="24dp"
+            android:layout_marginBottom="15dp">
+
+            <RadioButton
+                android:id="@+id/rbuyer"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:text="Buyer"
+                android:layout_marginTop="10dp"
+                android:checked="false"
+                android:textSize="20dp" />
+
+            <RadioButton
+                android:id="@+id/rseller"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:text="Seller"
+                android:layout_marginTop="20dp"
+                android:checked="false"
+                android:textSize="20dp" />
+        </RadioGroup>
+
+
+
         <com.google.android.material.button.MaterialButton
             android:id="@+id/signup"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/conpass"
+            android:layout_below="@+id/userrole"
             android:layout_centerHorizontal="true"
             android:layout_marginStart="20dp"
             android:layout_marginTop="20dp"

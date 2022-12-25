@@ -2,6 +2,7 @@ package com.example.kutibari;
 
 import static androidx.constraintlayout.helper.widget.MotionEffect.TAG;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -32,6 +33,7 @@ public class CustomerOrderPage extends AppCompatActivity {
     TextView productname,price_show,price_confirmation;
     int taka;
     EditText address,qty;
+    TextView pay;
 
 
     @Override
@@ -44,6 +46,7 @@ public class CustomerOrderPage extends AppCompatActivity {
         productname=findViewById(R.id.txtforwhattoorder);
         price_show=findViewById(R.id.price_show);
         address=findViewById(R.id.address);
+        pay=findViewById(R.id.pay);
         reference=FirebaseDatabase.getInstance();
 //        price_confirmation=findViewById(R.id.final_price);
 
@@ -55,6 +58,17 @@ public class CustomerOrderPage extends AppCompatActivity {
         productname.setText("The product you want to order : "+title);
         taka=Integer.parseInt(price);
         taka *= 0.4;
+        pay.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent launchIntent = getPackageManager().getLaunchIntentForPackage("com.bKash.customerapp");
+                if (launchIntent != null) {
+                    startActivity(launchIntent);
+                } else {
+                    Toast.makeText(CustomerOrderPage.this, "There is no package available in android", Toast.LENGTH_LONG).show();
+                }
+            }
+        });
         submit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -66,7 +80,7 @@ public class CustomerOrderPage extends AppCompatActivity {
                     taka *= quant;
                     String show_price = Integer.toString(taka);
 
-                    price_show.setText(show_price+" taka has been deducted from your account");
+//                    price_show.setText(show_price+" taka has been deducted from your account");
 //                    price_confirmation.setText("Please type "  +show_price+" in the above box and press the button below to confirm");
 
                     System.out.println(show_price);

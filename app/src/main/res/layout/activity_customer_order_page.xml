@@ -42,37 +42,6 @@
             android:text=""
             android:textColor="#B3000000"
             android:textSize="20dp" />
-
-
-<!--        <TextView-->
-<!--            android:id="@+id/phonenumber"-->
-<!--            android:layout_width="match_parent"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:layout_below="@id/ptitle"-->
-<!--            android:layout_marginStart="15dp"-->
-<!--            android:layout_marginTop="15dp"-->
-<!--            android:layout_marginEnd="15dp"-->
-<!--            android:layout_marginBottom="15dp"-->
-<!--            android:paddingLeft="24dp"-->
-<!--            android:text="Type your phone number:"-->
-<!--            android:textColor="#B3000000"-->
-<!--            android:textSize="20dp"-->
-<!--            android:textStyle="italic" />-->
-
-<!--        <EditText-->
-<!--            android:id="@+id/whatordertxt"-->
-<!--            android:layout_width="match_parent"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:layout_below="@id/phonenumber"-->
-<!--            android:layout_marginStart="24dp"-->
-<!--            android:layout_marginTop="5dp"-->
-<!--            android:layout_marginEnd="24dp"-->
-<!--            android:layout_marginBottom="10dp"-->
-<!--            android:background="@drawable/border"-->
-<!--            android:drawablePadding="20dp"-->
-<!--            android:padding="20dp"-->
-<!--            android:textColor="#80000000"-->
-<!--            android:textColorHint="#80000000" />-->
         <TextView
             android:id="@+id/addresstxt"
             android:layout_width="match_parent"
@@ -133,70 +102,45 @@
             android:padding="20dp"
             android:textColor="#B3000000"
             android:textColorHint="#B3000000" />
+        <LinearLayout
+            android:id="@+id/paytxt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/oqty"
+            android:orientation="horizontal"
+            android:gravity="center"
+            android:layout_marginTop="30dp"
+            android:layout_marginBottom="30dp"
+            android:layout_centerHorizontal="true">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="অর্ডার এর জন্য ৪০% টাকা পুর্বেই প্রদান করতে হবে"
+                android:textColor="#B3000000"/>
+            <TextView
+                android:id="@+id/pay"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="5dp"
+                android:text="প্রদান করুন"
+                android:textStyle="bold"
+                android:textColor="#B3000000"/>
+        </LinearLayout>
 
-<!--        <TextView-->
-<!--            android:id="@+id/txtforpayment"-->
-<!--            android:layout_width="match_parent"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:layout_below="@id/qtytxt"-->
-<!--            android:layout_marginStart="15dp"-->
-<!--            android:layout_marginTop="15dp"-->
-<!--            android:layout_marginEnd="15dp"-->
-<!--            android:layout_marginBottom="15dp"-->
-<!--            android:paddingLeft="24dp"-->
-<!--            android:text="Payment :"-->
-<!--            android:textColor="#B3000000"-->
-<!--            android:textSize="20dp"-->
-<!--            android:textStyle="italic" />-->
-
-<!--        <EditText-->
-<!--            android:id="@+id/payment"-->
-<!--            android:layout_width="match_parent"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:layout_below="@id/txtforpayment"-->
-<!--            android:layout_marginStart="24dp"-->
-<!--            android:layout_marginTop="5dp"-->
-<!--            android:layout_marginEnd="24dp"-->
-<!--            android:layout_marginBottom="10dp"-->
-<!--            android:background="@drawable/border"-->
-<!--            android:drawablePadding="20dp"-->
-<!--            android:padding="20dp"-->
-<!--            android:textColor="#B3000000"-->
-<!--            android:textColorHint="#B3000000" />-->
-
-
-<!--        <TextView-->
-<!--            android:id="@+id/final_price"-->
-<!--            android:layout_width="match_parent"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:layout_below="@+id/payment"-->
-<!--            android:layout_marginStart="15dp"-->
-<!--            android:layout_marginEnd="15dp"-->
-<!--            android:layout_marginBottom="15dp"-->
-<!--            android:paddingLeft="24dp"-->
-<!--            android:text=""-->
-<!--            android:textColor="#B3000000"-->
-<!--            android:textSize="20dp"/>-->
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/orderbtn"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@id/oqty"
+            android:layout_below="@id/paytxt"
             android:layout_alignParentBottom="true"
             android:layout_centerHorizontal="true"
             android:layout_marginStart="30dp"
-            android:layout_marginTop="30dp"
+            android:layout_marginTop="-48dp"
             android:layout_marginEnd="30dp"
-            android:layout_marginBottom="30dp"
+            android:layout_marginBottom="1dp"
             android:background="@drawable/btn_background"
             android:text="অর্ডার নিশ্চিত করুন" />
-
-
-
-
-
-
 
 
     </RelativeLayout>

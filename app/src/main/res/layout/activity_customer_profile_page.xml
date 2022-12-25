@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    tools:context=".CustomerProfilePage">
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -65,17 +65,31 @@
             android:layout_centerHorizontal="true"
             android:layout_marginTop="24dp"
             android:text="আমাদের কারিগর দেখুন"
-            android:textSize="16dp"
             android:textColor="@color/text"
-            />
+            android:textSize="16dp" />
+
+
+        <TextView
+            android:id="@+id/wishlist"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/showartist"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="24dp"
+            android:text="আপনার পছন্দের পণ্যগুলো দেখুন"
+            android:textColor="@color/text"
+            android:textSize="16dp" />
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/loginbtn"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/showartist"
+            android:layout_below="@+id/wishlist"
             android:layout_centerHorizontal="true"
-            android:layout_margin="16dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginBottom="16dp"
             android:background="@drawable/btn_background"
             android:text="লগআউট করুন" />
 </RelativeLayout>

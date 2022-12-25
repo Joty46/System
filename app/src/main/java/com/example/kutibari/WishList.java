@@ -1,7 +1,10 @@
 package com.example.kutibari;
 
+import static android.content.ContentValues.TAG;
+
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
 
@@ -21,7 +24,7 @@ import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 
-public class CustomerProfilePage extends AppCompatActivity {
+public class WishList extends AppCompatActivity {
     /**
      * grid view and arrays for category of products
      */
@@ -34,7 +37,7 @@ public class CustomerProfilePage extends AppCompatActivity {
     private ArrayList<AllProduct> productArrayList=new ArrayList<>();
     CategoryAdapter categoryAdapter;
     DatabaseReference databaseReference;
-    TextView customeruname,wishlist;
+    TextView customeruname;
     TextView showartist;
 
     /**
@@ -51,8 +54,7 @@ public class CustomerProfilePage extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_customer_profile_page);
         customeruname=findViewById(R.id.cusername);
-        showartist=findViewById(R.id.showartist);
-        wishlist=findViewById(R.id.wishlist);
+        Log.e(TAG, "onCreate: I have comed to this page" );
 
         /**
          * gridview for product category
@@ -80,7 +82,7 @@ public class CustomerProfilePage extends AppCompatActivity {
                 User user = snapshot.getValue(User.class);
                 if(user.role.equals("বিক্রেতা") || user.role.equals("Seller"))
                 {
-                    startActivity(new Intent(CustomerProfilePage.this,MainActivity.class));
+                    startActivity(new Intent(WishList.this,MainActivity.class));
                     finish();
                 }
                 else
@@ -97,7 +99,7 @@ public class CustomerProfilePage extends AppCompatActivity {
 
         recyclerView=findViewById(R.id.productlist);
         databaseReference=FirebaseDatabase.getInstance().getReference();
-        databaseReference.child("AllProduct").addValueEventListener(new ValueEventListener() {
+        databaseReference.child("Wishlist").child("user").child("product").addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 productArrayList.clear();
@@ -128,28 +130,14 @@ public class CustomerProfilePage extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 mAuth.signOut();
-                startActivity(new Intent(CustomerProfilePage.this, LoginPage.class));
+                startActivity(new Intent(WishList.this, LoginPage.class));
                 finish();
-            }
-        });
-        showartist.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent=new Intent(CustomerProfilePage.this,ArtistShow.class);
-                startActivity(intent);
             }
         });
 
         /**
-         * go to wishlist page
+         * sign up text to go create account page
          */
-        wishlist.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent= new Intent(CustomerProfilePage.this,WishList.class);
-                startActivity(intent);
-            }
-        });
 
         /**
          * view category to go to category page
