@@ -33,20 +33,10 @@
             android:textSize="24dp" />
 
         <TextView
-            android:id="@+id/price_show"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/txtforwhattoorder"
-            android:layout_margin="24dp"
-            android:paddingLeft="24dp"
-            android:text=""
-            android:textColor="#B3000000"
-            android:textSize="20dp" />
-        <TextView
             android:id="@+id/addresstxt"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@id/price_show"
+            android:layout_below="@id/txtforwhattoorder"
             android:layout_marginStart="15dp"
             android:layout_marginTop="15dp"
             android:layout_marginEnd="15dp"
@@ -102,11 +92,40 @@
             android:padding="20dp"
             android:textColor="#B3000000"
             android:textColorHint="#B3000000" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/orderbtn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/oqty"
+            android:layout_centerHorizontal="true"
+            android:layout_margin="24dp"
+            android:layout_marginStart="30dp"
+            android:layout_marginTop="30dp"
+            android:layout_marginEnd="30dp"
+            android:layout_marginBottom="30dp"
+            android:background="@drawable/btn_background"
+            android:text="নিশ্চিত করুন" />
+
+
+        <TextView
+            android:id="@+id/price_show"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/orderbtn"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="24dp"
+            android:layout_marginEnd="24dp"
+            android:layout_marginBottom="24dp"
+            android:paddingLeft="24dp"
+            android:text=""
+            android:textColor="#B3000000"
+            android:textSize="20dp" />
         <LinearLayout
             android:id="@+id/paytxt"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/oqty"
+            android:layout_below="@+id/price_show"
             android:orientation="horizontal"
             android:gravity="center"
             android:layout_marginTop="30dp"
@@ -128,19 +147,6 @@
         </LinearLayout>
 
 
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/orderbtn"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/paytxt"
-            android:layout_alignParentBottom="true"
-            android:layout_centerHorizontal="true"
-            android:layout_marginStart="30dp"
-            android:layout_marginTop="-48dp"
-            android:layout_marginEnd="30dp"
-            android:layout_marginBottom="1dp"
-            android:background="@drawable/btn_background"
-            android:text="অর্ডার নিশ্চিত করুন" />
 
 
     </RelativeLayout>

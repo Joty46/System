@@ -24,6 +24,8 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.FirebaseDatabase;
 
+import java.math.BigInteger;
+
 public class RegistrationNew extends AppCompatActivity {
     /**
      * database reference
@@ -93,6 +95,22 @@ public class RegistrationNew extends AppCompatActivity {
                 String[] pass = {password.getText().toString()};
                 String confirm = conpass.getText().toString();
                 int selectedId = radioGroup.getCheckedRadioButtonId();
+
+                byte input[] = password.getText().toString().getBytes();
+                byte output[] = new byte[0];
+
+                try {
+                    output = sha.encryptSHA(input,"SHA-256");
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+
+                BigInteger shaData= new BigInteger(1,output);
+                System.out.println(shaData);
+                String b1String = shaData.toString(1);
+                System.out.println(b1String);
+
+
                 if (selectedId == -1) {
                     Toast.makeText(RegistrationNew.this, "No role has been selected", Toast.LENGTH_SHORT).show();
                 }
@@ -118,14 +136,14 @@ public class RegistrationNew extends AppCompatActivity {
                     Toast.makeText(RegistrationNew.this,"Passwords are not matched",Toast.LENGTH_SHORT).show();
                 }
                 else{
-                    mAuth.createUserWithEmailAndPassword(mail,pass[0]).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+                    mAuth.createUserWithEmailAndPassword(mail,b1String).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                         @Override
                         public void onComplete(@NonNull Task<AuthResult> task) {
                             if(task.isSuccessful())
                             {
                                 String uuid=task.getResult().getUser().getUid();
                                 Log.e(TAG, "onComplete: "+uuid);
-                                User user=new User(mail,user_name,pass[0],role,uuid);
+                                User user=new User(mail,user_name,b1String,role,uuid);
                                 try {
                                     reference.getReference().child("users").child(uuid).setValue(user).addOnSuccessListener(new OnSuccessListener<Void>() {
                                         @Override

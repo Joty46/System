@@ -20,6 +20,8 @@ import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.FirebaseDatabase;
 
+import java.math.BigInteger;
+
 public class LoginPage extends AppCompatActivity {
 
     FirebaseDatabase reference;
@@ -51,6 +53,21 @@ public class LoginPage extends AppCompatActivity {
                 final String phone = mobile.getText().toString()+"@gmail.com";
                 final String pass = password.getText().toString();
 
+
+                byte input[] = password.getText().toString().getBytes();
+                byte output[] = new byte[0];
+
+                try {
+                    output = sha.encryptSHA(input,"SHA-256");
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+
+                BigInteger shaData= new BigInteger(1,output);
+                System.out.println(shaData);
+                String b1String = shaData.toString(1);
+                System.out.println(b1String);
+
                 if(phone.isEmpty()){
                     Toast.makeText(LoginPage.this,"Please Enter your username",Toast.LENGTH_SHORT).show();
                 }
@@ -58,7 +75,7 @@ public class LoginPage extends AppCompatActivity {
                     Toast.makeText(LoginPage.this,"Please Enter your password",Toast.LENGTH_SHORT).show();
                 }
                 else{
-                    mAuth.signInWithEmailAndPassword(phone,pass).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+                    mAuth.signInWithEmailAndPassword(phone,b1String).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                         @Override
                         public void onComplete(@NonNull Task<AuthResult> task) {
                             if(task.isSuccessful())

@@ -113,7 +113,9 @@ public class CustomerOrderPage extends AppCompatActivity {
 //                                                    System.out.println(i);
                                                     String number = Integer.toString(i);
                                                     number="0"+number;
-                                                    Toast.makeText(CustomerOrderPage.this,"Your order has confirmed. "+show_price+" taka has been sent to "+number,Toast.LENGTH_SHORT).show();
+
+                                                    price_show.setText("You have to pay "+show_price+" taka to "+number);
+//                                                    Toast.makeText(CustomerOrderPage.this,"Your order has confirmed. "+show_price+" taka has been sent to "+number,Toast.LENGTH_SHORT).show();
                                                 }
                                             }
                                         }

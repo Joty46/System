@@ -130,7 +130,7 @@ public class RegisterScan extends AppCompatActivity {
 
 //                textView1.setText(text);
 //                textView2.setText(text1);
-                if(c.length()==10) {
+                if(c.length()>=10) {
                     textView3.setText(c);
                     Intent intent = new Intent(RegisterScan.this, RegistrationNew.class);
                     intent.putExtra("nid", c);
