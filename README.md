@@ -17,4 +17,4 @@ Additional features for the seller:
 shown in the list.
 
 
-See Insights for app demonstration.
+See wiki for app demonstration.
