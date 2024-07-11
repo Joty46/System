@@ -1,3 +1,4 @@
+# KutiBari
 A system to support the rural women by selling the homemade products through online 
 platform. We have designed an android application for the users and a website for the 
 admin through which system can be controlled.
